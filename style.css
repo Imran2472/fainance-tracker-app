@@ -4,60 +4,33 @@
     box-sizing: border-box;
 }
 
-body{
 
-    background-color: black;
-    
 
-}
-.nav_bar{
-    background-color: rgb(6, 6, 48);
-    color: white;
-    width: 100%;
-    height: 60px;
-    text-align: center;
-    padding-top: 10px;
-}
 .hidden{
     display: none;
 }
 
 .login_container{
     text-align: center;
-    border: 2px solid white;
     border-radius: 10px;
     height: 430px;
     width: 400px;
     padding-top: 5px;
-    font-size: 1.2rem;
-    font-weight: bolder;
-    margin: 0 auto;
-    margin-top: 60px;
-    color: blue;
-}
-.btns{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-
-}
-#swich_login{
-    border: none;
-    background-color: rgb(7, 7, 80);
-    border-radius: 10px;
-    color: white;
-    width: 150px;
-    height: 35px;
-}
-#swich_Signup{
-    border: none;
+    margin-top: 50px;
+    margin-left: 100px;
     
-    border-radius: 10px;
-    color: black;
-    width: 150px;
-    height: 35px
+    
+    
 }
+.mean_dev{
+display: flex;
+    height:400px;
+    width: 400px;
+     
+     
+       border: 2px solid red;
+}
+
 .inputs{
     margin-top: 40px;
 
@@ -69,12 +42,15 @@ input{
         height: 40px;
         padding: 5px;
         font-weight: bold;
-        border-radius: 10px;
-        border: none;
+        border-right: none;
+        border-left: none;
+        border-top:none;
+        border-bottom: 2px solid green;
         margin-top: 10px;
     
     
 }
+
 #para1{
     margin-right: 190px;
     color: blue;
@@ -85,43 +61,37 @@ input{
 }
 
 #login_btn{
-    margin-top: 40px;
+    margin-top: 30px;
     border: none;
-    border-radius: 10px;
-    width: 80%;
-    height: 40px;
-    background-color: rgb(7, 7, 80);
+    border-radius: 20px;
+    width: 35%;
+    height: 35px;
+    background-color: rgb(13, 13, 180);
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: white;
 }
 .Signup_container{
     text-align: center;
-    border: 2px solid white;
-    border-radius: 10px;
     height: 430px;
     width: 400px;
-    padding-top: 5px;
-    font-size: 1.2rem;
-    font-weight: bolder;
-    margin: 0 auto;
-    margin-top: 60px;
-    color: blue;
+    margin-top: 50px;
+    margin-left: 100px;
 }
 
 #Signup_btn{
-    margin-top: 40px;
+    margin-top: 30px;
     border: none;
-    border-radius: 10px;
-    width: 80%;
+    border-radius: 20px;
+    width: 40%;
     height: 40px;
-    background-color: rgb(7, 7, 80);
+    background-color: rgb(13, 13, 180);
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: white;
 }
 
-@media only screen and (max-width:399px) {
+/* @media only screen and (max-width:1107px) {
     .login_container {
         width: 90%;
 
@@ -135,8 +105,8 @@ input{
     
 
 
-}
-@media only screen and (max-width:368px) {
+} */
+/* @media only screen and (max-width:368px) {
     .login_container {
         width: 100%;
 
@@ -158,7 +128,7 @@ input{
     }
     .nav_bar{
         font-size: 13px;
-        /* height: 70px; */
+        
     }
     #para1{
         margin-left: 10px;
@@ -167,4 +137,4 @@ input{
     .Signup_container{
         width: 100%;
     }
-}
+} */

@@ -7,44 +7,70 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="parent">
-        <div class="nav_bar">
-            <h1>ExPeNsE tRaCkEr ApP</h1>
-        </div>
+    <div style="display: flex; gap: 200px;" class="parent">
+    
+
+
+       
         <div class="login_container hidden">
-            <h1>LoGiN fOrM</h1>
-            <div class="btns">
-                <button id="swich_login">Login</button>
-            <button id="swich_Signup" onclick="gosignuppage()">Signup</button>
-            
-            </div>
-            <div class="inputs">
-                <input id="login_email"  type="text" placeholder="ENTER YOU ARE EMAIL">
+            <h1>Ready to start your
                 <br>
-                <input id="login_password" type="password" placeholder="ENTER YOU ARE PASSWORD">
+                success story?
+            </h1>
+            <br>
+            <p style="font-size: 1.2rem;color: rgb(116, 108, 108);">Login to our websits and
+                <br>
+                Enjoy Expense tracker app
+            </p>
+            
+            <div class="inputs">
+                <input id="login_email"  type="text" placeholder="ENTER YOUR EMAIL">
+                <br>
+                <input id="login_password" type="password" placeholder="ENTER YOUR PASSWORD">
                 <p id="para1">forgot password?</p>
+                <br>
+                <p>I don't have an account <span onclick="gosignuppage()" style="color: blue;text-align: center; cursor: pointer;">Signup</span></p>
             </div>
             <button id="login_btn" onclick="login()">Login</button>
+            <br>
            
         </div>
+
+        
+    
+        
         <div class="Signup_container">
-            <h1>SiGnUp fOrM</h1>
-            <div class="btns">
-                <button id="swich_login" style="background-color: white;color: black;" onclick="gologinpage()">Login</button>
-            <button style="background-color:rgb(7, 7, 80) ; color: white;" id="swich_Signup">Signup</button>
+            <h1>Ready to start your
+                <br>
+                success story?
+            </h1>
+            <br>
+            <p style="font-size: 1.2rem;color: rgb(116, 108, 108);">Signup to our websits and
+                <br>
+                Enjoy Expense tracker app
+            </p>
             
-            </div>
             <div class="inputs">
-                <input id="email_inpu" type="text" placeholder="ENTER YOU ARE EMAIL">
+                <input id="username" type="text" placeholder="ENTER YOUR FULL NAME">
                 <br>
-                <input id="password_inpu" type="password" placeholder="ENTER YOU ARE PASSWORD">
+                <input id="email_inpu" type="text" placeholder="ENTER YOUR EMAIL">
                 <br>
-                <input id="conform_password_inpu" type="password" placeholder="CONFORM YOU ARE PASSWORD">
-            
+                <input id="password_inpu" type="password" placeholder="ENTER YOUR PASSWORD">
+                <br>
+                <input id="conform_password_inpu" type="password" placeholder="CONFORM YOUR PASSWORD">
+                <br>
+                <br>
+            <p>I have an account <span onclick="gologinpage()" style="color: blue;text-align: center; cursor: pointer;">Login</span></p>
             </div>
             <button id="Signup_btn" onclick="signup()">Signup</button>
+            <br>
            
         </div>
+
+        <div class="img">
+            <img style="width: 500px;height: 500px; margin-top: 10px; " src="./assets/expense-tracker-app.png" alt="">
+        </div>   
+    
     </div>
 </body>
 <script src="app.js"></script>

@@ -10,6 +10,7 @@ const login_password=document.getElementById('login_password')
 const login_btn=document.getElementById('login_btn')
 const signup_btn=document.getElementById('Signup_btn')
 const para=document.getElementById('para1')
+const user_name=document.getElementById('username')
 // console.log(para)
 // console.log(email_inpu,password_inpu,conform_password_inpu,signup_btn,login_btn)
 
@@ -37,7 +38,8 @@ function signup(){
     const email=email_inpu.value
     const password=password_inpu.value
     const conform_password=conform_password_inpu.value
-    console.log( email, password, conform_password)
+    const name=user_name.value
+    console.log( name,email, password, conform_password,)
     const symbol=email.indexOf('@gmail.com')
     if(!email_inpu.value||!password_inpu.value||!conform_password_inpu.value){
         alert('plz Enter a required fields')
@@ -50,7 +52,7 @@ function signup(){
     }
     if(conform_password!=password){
     
-        alert('plz match you are password')
+        alert('plz match your password')
         
         return
     }
@@ -63,6 +65,7 @@ function signup(){
     email_inpu.value=''
     password_inpu.value=''
     conform_password_inpu.value=''
+    user_name.value=''
     console.log('signup successfully')
 
 }
