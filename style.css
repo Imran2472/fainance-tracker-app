@@ -1,0 +1,170 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    background-color: black;
+    
+
+}
+.nav_bar{
+    background-color: rgb(6, 6, 48);
+    color: white;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    padding-top: 10px;
+}
+.hidden{
+    display: none;
+}
+
+.login_container{
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 430px;
+    width: 400px;
+    padding-top: 5px;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin: 0 auto;
+    margin-top: 60px;
+    color: blue;
+}
+.btns{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+
+}
+#swich_login{
+    border: none;
+    background-color: rgb(7, 7, 80);
+    border-radius: 10px;
+    color: white;
+    width: 150px;
+    height: 35px;
+}
+#swich_Signup{
+    border: none;
+    
+    border-radius: 10px;
+    color: black;
+    width: 150px;
+    height: 35px
+}
+.inputs{
+    margin-top: 40px;
+
+}
+
+
+input{
+        width: 80%;
+        height: 40px;
+        padding: 5px;
+        font-weight: bold;
+        border-radius: 10px;
+        border: none;
+        margin-top: 10px;
+    
+    
+}
+#para1{
+    margin-right: 190px;
+    color: blue;
+    font-size: none;
+    font-weight: normal;
+    font-size: 17px;
+    margin-top: 5px;
+}
+
+#login_btn{
+    margin-top: 40px;
+    border: none;
+    border-radius: 10px;
+    width: 80%;
+    height: 40px;
+    background-color: rgb(7, 7, 80);
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+}
+.Signup_container{
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 430px;
+    width: 400px;
+    padding-top: 5px;
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin: 0 auto;
+    margin-top: 60px;
+    color: blue;
+}
+
+#Signup_btn{
+    margin-top: 40px;
+    border: none;
+    border-radius: 10px;
+    width: 80%;
+    height: 40px;
+    background-color: rgb(7, 7, 80);
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: white;
+}
+
+@media only screen and (max-width:399px) {
+    .login_container {
+        width: 90%;
+
+    }
+    #para1{
+        margin-left: 20px;
+    }
+    .Signup_container{
+        width: 90%;
+    }
+    
+
+
+}
+@media only screen and (max-width:368px) {
+    .login_container {
+        width: 100%;
+
+    }
+    .nav_bar{
+        font-size: 15px;
+    }
+    #para1{
+        margin-left: 20px;
+    }
+    .Signup_container{
+        width: 100%;
+    }
+}
+@media only screen and (max-width:330px) {
+    .login_container {
+        width: 100%;
+
+    }
+    .nav_bar{
+        font-size: 13px;
+        /* height: 70px; */
+    }
+    #para1{
+        margin-left: 10px;
+        font-size: 13px;
+    }
+    .Signup_container{
+        width: 100%;
+    }
+}

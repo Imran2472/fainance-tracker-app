@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="parent">
+        <div class="nav_bar">
+            <h1>ExPeNsE tRaCkEr ApP</h1>
+        </div>
+        <div class="login_container hidden">
+            <h1>LoGiN fOrM</h1>
+            <div class="btns">
+                <button id="swich_login">Login</button>
+            <button id="swich_Signup" onclick="gosignuppage()">Signup</button>
+            
+            </div>
+            <div class="inputs">
+                <input id="login_email"  type="text" placeholder="ENTER YOU ARE EMAIL">
+                <br>
+                <input id="login_password" type="password" placeholder="ENTER YOU ARE PASSWORD">
+                <p id="para1">forgot password?</p>
+            </div>
+            <button id="login_btn" onclick="login()">Login</button>
+           
+        </div>
+        <div class="Signup_container">
+            <h1>SiGnUp fOrM</h1>
+            <div class="btns">
+                <button id="swich_login" style="background-color: white;color: black;" onclick="gologinpage()">Login</button>
+            <button style="background-color:rgb(7, 7, 80) ; color: white;" id="swich_Signup">Signup</button>
+            
+            </div>
+            <div class="inputs">
+                <input id="email_inpu" type="text" placeholder="ENTER YOU ARE EMAIL">
+                <br>
+                <input id="password_inpu" type="password" placeholder="ENTER YOU ARE PASSWORD">
+                <br>
+                <input id="conform_password_inpu" type="password" placeholder="CONFORM YOU ARE PASSWORD">
+            
+            </div>
+            <button id="Signup_btn" onclick="signup()">Signup</button>
+           
+        </div>
+    </div>
+</body>
+<script src="app.js"></script>
+</html>
