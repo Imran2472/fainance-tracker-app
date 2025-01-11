@@ -3,49 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="parent">
-        <div class="nav_bar">
-            <h1>ExPeNsE tRaCkEr ApP</h1>
+    <div class="container">
+        <!-- sidebar -->
+        <div class="sidebar">
+
         </div>
-        <div class="login_container hidden">
-            <h1>LoGiN fOrM</h1>
-            <div class="btns">
-                <button id="swich_login">Login</button>
-            <button id="swich_Signup" onclick="gosignuppage()">Signup</button>
+
+        <!-- Dashboard start -->
+        <div class="dashboard">
+
+            <div class="transaction">
+
+                <h1>All Transactions</h1>
+
+                <div class="graph">
+
+                </div>
+
+                <div class="total">
+                    <div class="income">
+                        <h4>Total Income</h4>
+                        <p style="font-size: 32px; font-weight: bold;">$ 16500</p>
+                    </div>
+                    <div class="expence">
+                        <h4>Total Expences</h4>
+                        <p style="font-size: 32px; font-weight: bold;">$ 3920</p>
+                    </div>
+                </div>
+
+                <div class="balance-div">
+                    <div class="balance">
+                        <h4>Total Balance</h4>
+                        <p style="font-size: 32px; font-weight: bold; color: green;">$ 12580</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="history">
+
+                <h4>Recent History</h4>
+
+                <div class="history-outer-div">
+                    <div class="history-ele">
+                        <p>Dentist Appointment</p>
+                        <p>-$120</p>
+                    </div>
+                    <div class="history-ele">
+                        <p>Dentist Appointment</p>
+                        <p>-$120</p>
+                    </div>
+                    <div class="history-ele">
+                        <p>Dentist Appointment</p>
+                        <p>-$120</p>
+                    </div>
+                </div>
+
+                <div class="range-outer-div">
+                    <div class="range-ele-1">
+                        <p>Min</p>
+                        <h4>Salary</h4>
+                        <p>Max</p>
+                    </div>
+                    <div class="range-ele">
+                        <p>$1200</p>
+                        <p>$8000</p>
+                    </div>
+                    <div class="range-ele-1">
+                        <p>Min</p>
+                        <h4>Expence</h4>
+                        <p>Max</p>
+                    </div>
+                    <div class="range-ele">
+                        <p>$120</p>
+                        <p>$3000</p>
+                    </div>
+                </div>
+
+            </div>
             
-            </div>
-            <div class="inputs">
-                <input id="login_email"  type="text" placeholder="ENTER YOU ARE EMAIL">
-                <br>
-                <input id="login_password" type="password" placeholder="ENTER YOU ARE PASSWORD">
-                <p id="para1">forgot password?</p>
-            </div>
-            <button id="login_btn" onclick="login()">Login</button>
-           
         </div>
-        <div class="Signup_container">
-            <h1>SiGnUp fOrM</h1>
-            <div class="btns">
-                <button id="swich_login" style="background-color: white;color: black;" onclick="gologinpage()">Login</button>
-            <button style="background-color:rgb(7, 7, 80) ; color: white;" id="swich_Signup">Signup</button>
-            
-            </div>
-            <div class="inputs">
-                <input id="email_inpu" type="text" placeholder="ENTER YOU ARE EMAIL">
-                <br>
-                <input id="password_inpu" type="password" placeholder="ENTER YOU ARE PASSWORD">
-                <br>
-                <input id="conform_password_inpu" type="password" placeholder="CONFORM YOU ARE PASSWORD">
-            
-            </div>
-            <button id="Signup_btn" onclick="signup()">Signup</button>
-           
-        </div>
+
     </div>
 </body>
-<script src="app.js"></script>
 </html>
