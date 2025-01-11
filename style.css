@@ -2,169 +2,118 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-body{
-
-    background-color: black;
-    
-
-}
-.nav_bar{
-    background-color: rgb(6, 6, 48);
-    color: white;
-    width: 100%;
-    height: 60px;
-    text-align: center;
-    padding-top: 10px;
-}
-.hidden{
-    display: none;
-}
-
-.login_container{
-    text-align: center;
-    border: 2px solid white;
-    border-radius: 10px;
-    height: 430px;
-    width: 400px;
-    padding-top: 5px;
-    font-size: 1.2rem;
-    font-weight: bolder;
-    margin: 0 auto;
-    margin-top: 60px;
-    color: blue;
-}
-.btns{
+.container{
     display: flex;
+    gap: 16px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(230, 185, 192);
+    padding: 16px;
+}
+
+.sidebar{
+    width: 20%;
+    height: 100%;
+    background-color: lavender;
+    border-radius: 12px;
+}
+
+.dashboard{
+    width: 80%;
+    height: 100%;
+    background-color: lavender;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    gap: 12px;
+}
+
+.transaction{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* border: 1px solid black; */
+}
+
+.graph{
+    width: 100%;
+    height: 50%;
+    /* border: 1px solid black; */
+    border-radius: 8px;
+    background-color: white;
+}
+
+.total{
+    width: 100%;
+    height: 20%;
+    border-radius: 8px;
+    display: flex;
+    gap: 12px;
+}
+
+.income, .expence, .balance{
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-
-}
-#swich_login{
-    border: none;
-    background-color: rgb(7, 7, 80);
-    border-radius: 10px;
-    color: white;
-    width: 150px;
-    height: 35px;
-}
-#swich_Signup{
-    border: none;
-    
-    border-radius: 10px;
-    color: black;
-    width: 150px;
-    height: 35px
-}
-.inputs{
-    margin-top: 40px;
-
+    flex-direction: column;
 }
 
-
-input{
-        width: 80%;
-        height: 40px;
-        padding: 5px;
-        font-weight: bold;
-        border-radius: 10px;
-        border: none;
-        margin-top: 10px;
-    
-    
-}
-#para1{
-    margin-right: 190px;
-    color: blue;
-    font-size: none;
-    font-weight: normal;
-    font-size: 17px;
-    margin-top: 5px;
+.balance-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 20%;
+    border-radius: 8px;
 }
 
-#login_btn{
-    margin-top: 40px;
-    border: none;
-    border-radius: 10px;
-    width: 80%;
-    height: 40px;
-    background-color: rgb(7, 7, 80);
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: white;
-}
-.Signup_container{
-    text-align: center;
-    border: 2px solid white;
-    border-radius: 10px;
-    height: 430px;
-    width: 400px;
-    padding-top: 5px;
-    font-size: 1.2rem;
-    font-weight: bolder;
-    margin: 0 auto;
-    margin-top: 60px;
-    color: blue;
+.history{
+    width: 40%;
+    height: 100%;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-#Signup_btn{
-    margin-top: 40px;
-    border: none;
-    border-radius: 10px;
-    width: 80%;
-    height: 40px;
-    background-color: rgb(7, 7, 80);
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: white;
+.history-outer-div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-@media only screen and (max-width:399px) {
-    .login_container {
-        width: 90%;
-
-    }
-    #para1{
-        margin-left: 20px;
-    }
-    .Signup_container{
-        width: 90%;
-    }
-    
-
-
+.history-ele, .range-ele{
+    width: 100%;
+    border-radius: 8px;
+    background-color: white;
+    padding: 12px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-@media only screen and (max-width:368px) {
-    .login_container {
-        width: 100%;
 
-    }
-    .nav_bar{
-        font-size: 15px;
-    }
-    #para1{
-        margin-left: 20px;
-    }
-    .Signup_container{
-        width: 100%;
-    }
+.rane-outer-div{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
-@media only screen and (max-width:330px) {
-    .login_container {
-        width: 100%;
 
-    }
-    .nav_bar{
-        font-size: 13px;
-        /* height: 70px; */
-    }
-    #para1{
-        margin-left: 10px;
-        font-size: 13px;
-    }
-    .Signup_container{
-        width: 100%;
-    }
+.range-ele-1{
+    width: 100%;
+    border-radius: 8px;
+    padding: 12px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
