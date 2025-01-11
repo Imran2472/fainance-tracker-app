@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Finance Tracker App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="parent">
+      <div class="nav_bar">
+        <h1>Finance Tracker App</h1>
+      </div>
+      <div class="login_container hidden">
+        <h1>Login Form</h1>
+        <div class="btns">
+          <button id="swich_login">Login</button>
+          <button id="swich_Signup" onclick="gosignuppage()">Signup</button>
+        </div>
+        <div class="inputs">
+          <input id="login_email" type="text" placeholder="Enter Your email" />
+          <br />
+          <input
+            id="login_password"
+            type="password"
+            placeholder="Enter your password"
+          />
+          <p id="para1">forgot password?</p>
+        </div>
+        <button id="login_btn" onclick="login()">Login</button>
+      </div>
+      <div class="Signup_container">
+        <h1>Signup Form</h1>
+        <div class="btns">
+          <button
+            id="swich_login"
+            style="background-color: white; color: black"
+            onclick="gologinpage()"
+          >
+            Login
+          </button>
+          <button
+            style="background-color: rgb(7, 7, 80); color: white"
+            id="swich_Signup"
+          >
+            Signup
+          </button>
+        </div>
+        <div class="inputs">
+          <input id="email_inpu" type="text" placeholder="Enter your name" />
+          <br />
+          <input id="email_inpu" type="email" placeholder="Enter your email" />
+          <br />
+          <input
+            id="password_inpu"
+            type="password"
+            placeholder="Enter your password"
+          />
+          <br />
+          <input
+            id="conform_password_inpu"
+            type="password"
+            placeholder="Conform your password"
+          />
+        </div>
+        <button id="Signup_btn" onclick="signup()">Signup</button>
+      </div>
+    </div>
+  </body>
+  <script src="app.js"></script>
+</html>
