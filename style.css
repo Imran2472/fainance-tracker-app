@@ -1,130 +1,203 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
 }
 
-.hidden {
-  display: none;
+.container{
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(230, 185, 192);
+    padding: 16px;
 }
 
-.login_container {
-  text-align: center;
-  border-radius: 10px;
-  height: 430px;
-  width: 400px;
-  padding-top: 5px;
-  margin-top: 50px;
-  margin-left: 100px;
-}
-.mean_dev {
-  display: flex;
-  height: 400px;
-  width: 400px;
-
-  border: 2px solid red;
+.sidebar{
+    width: 20%;
+    height: 100%;
+    background-color: lavender;
+    border-radius: 12px;
 }
 
-.inputs {
-  margin-top: 40px;
+/* Income Page Start */
+.income-dashboard{
+    width: 80%;
+    height: 100%;
+    background-color: lavender;
+    border-radius: 12px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    /* display: none; */
+    gap: 12px;
 }
 
-input {
-  width: 80%;
-  height: 40px;
-  padding: 5px;
-  font-weight: bold;
-  border-right: none;
-  border-left: none;
-  border-top: none;
-  border-bottom: 2px solid green;
-  margin-top: 10px;
+.income-total{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid black; */
+    background-color: white;
+    justify-content: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
 }
 
-#para1 {
-  margin-right: 190px;
-  color: blue;
-  font-size: none;
-  font-weight: normal;
-  font-size: 17px;
-  margin-top: 5px;
+.income-total span{
+    font-size: 28px;
+    color: green;
 }
 
-#login_btn {
-  margin-top: 30px;
-  border: none;
-  border-radius: 20px;
-  width: 35%;
-  height: 35px;
-  background-color: rgb(13, 13, 180);
-  font-weight: bold;
-  font-size: 1rem;
-  color: white;
-}
-.Signup_container {
-  text-align: center;
-  height: 430px;
-  width: 400px;
-  margin-top: 50px;
-  margin-left: 100px;
+/* income-input-container */
+.income-input-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
 }
 
-#Signup_btn {
-  margin-top: 30px;
-  border: none;
-  border-radius: 20px;
-  width: 40%;
-  height: 40px;
-  background-color: rgb(13, 13, 180);
-  font-weight: bold;
-  font-size: 1rem;
-  color: white;
+/* income-input-div */
+.income-input-div{
+    width: 30%;
+    height: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-/* @media only screen and (max-width:1107px) {
-    .login_container {
-        width: 90%;
+.income-input-div input{
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.615);
+}
 
-    }
-    #para1{
-        margin-left: 20px;
-    }
-    .Signup_container{
-        width: 90%;
-    }
+.income-input-div select{
+    width: 120px;
+    padding: 8px;
+    align-self: flex-end;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.615);
+    cursor: pointer;
+}
+
+.income-input-div textarea{
+    height: 100px;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.615);
+}
+
+.income-input-div button{
+    width: 120px;
+    padding: 8px;
+    color: white;
+    background-color: maroon;
+    border-radius: 20px;
+    float: left;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+.income-input-div button:hover{
+    background-color: green;
+}
+
+/* income result div */
+.income-input-result-div{
+    width: 70%;
+    height: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: auto;
+}
+/* .income-input-result-div::-webkit-scrollbar{
+    display: none;
+} */
+
+.income-input-result-div-ele{
+    width: 100%;
+    padding: 12px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+}
+
+.income-info-ele{
+    display: flex;
+    gap: 8px;
+    /* padding: 8px; */
     
-
-
-} */
-/* @media only screen and (max-width:368px) {
-    .login_container {
-        width: 100%;
-
-    }
-    .nav_bar{
-        font-size: 15px;
-    }
-    #para1{
-        margin-left: 20px;
-    }
-    .Signup_container{
-        width: 100%;
-    }
 }
-@media only screen and (max-width:330px) {
-    .login_container {
-        width: 100%;
 
-    }
-    .nav_bar{
-        font-size: 13px;
-        
-    }
-    #para1{
-        margin-left: 10px;
-        font-size: 13px;
-    }
-    .Signup_container{
-        width: 100%;
-    }
-} */
+.income-info{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    gap: 4px;
+}
+
+.income-icon{
+    font-size: 28px;
+}
+
+.income-info-upper{
+    display: flex;
+    /* border: 1px solid black; */
+    align-items: center;
+    gap: 8px;
+}
+
+.income-info-upper div{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: green;
+}
+
+.income-info-upper p{
+    font-weight: bold;
+}
+
+.income-info-lower{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.income-info-lower-amount{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.del-income-ele{
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    border: none;
+    outline: none;
+}
+.del-income-ele:hover{
+    background-color: red;
+}

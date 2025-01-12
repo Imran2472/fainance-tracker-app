@@ -1,90 +1,122 @@
-const swich_login = document.getElementById("swich_login");
-const swich_Signup = document.getElementById("swich_Signup");
-const login_container = document.querySelector(".login_container");
-const Signup_container = document.querySelector(".Signup_container");
-const email_inpu = document.getElementById("email_inpu");
-const password_inpu = document.getElementById("password_inpu");
-const conform_password_inpu = document.getElementById("conform_password_inpu");
-const login_email = document.getElementById("login_email");
-const login_password = document.getElementById("login_password");
-const login_btn = document.getElementById("login_btn");
-const signup_btn = document.getElementById("Signup_btn");
-const para = document.getElementById("para1");
-const user_name = document.getElementById("username");
-// console.log(para)
-// console.log(email_inpu,password_inpu,conform_password_inpu,signup_btn,login_btn)
+const incomeParent = document.getElementById('incomeParent');
+const salaryTitleInput = document.getElementById('salaryTitle');
+const salaryAmountInput = document.getElementById('salaryAmount');
+const IncomeDateInput = document.getElementById('IncomeDate');
+const userMsgInput = document.getElementById('userMsg');
+const totalIncome = document.getElementById('totalIncome');
+const selectOptionParent = document.getElementById('select-option');
 
-// console.log(swich_Signup,swich_login, login_container ,Signup_container)
 
-function gologinpage() {
-  // console.log('h.r')
-  login_container.classList.remove("hidden");
-  Signup_container.classList.add("hidden");
+function addIncomeEle() {
+
+    const salaryTitle = salaryTitleInput.value;
+    const salaryAmount = salaryAmountInput.value;
+    const IncomeDate = IncomeDateInput.value;
+    const userMsg = userMsgInput.value;
+
+    if (salaryTitle.length > 0 && IncomeDate.length > 0) {
+
+        // create Element
+        const incomeInputResultDivEle = document.createElement('div');
+        const incomeInfoEle = document.createElement('div');
+        const incomeIcon = document.createElement('i');
+        const incomeInfo = document.createElement('div');
+        const incomeInfoUpper = document.createElement('div');
+        const div = document.createElement('div');
+        const p = document.createElement('p');
+        const incomeInfoLower = document.createElement('div');
+        const incomeInfoLowerAmountDiv1 = document.createElement('div');
+        const amount = document.createElement('p');
+        const incomeInfoLowerAmountDiv2 = document.createElement('div');
+        const dateIcon = document.createElement('i');
+        const date = document.createElement('p');
+        const incomeInfoLowerAmountDiv3 = document.createElement('div');
+        const msgIcon = document.createElement('i');
+        const msg = document.createElement('p');
+        const deleteBtn = document.createElement('button');
+        const deleteIcon = document.createElement('i');
+
+        // build relation & add classes
+        incomeParent.appendChild(incomeInputResultDivEle);
+        incomeInputResultDivEle.classList.add('income-input-result-div-ele');
+        incomeInputResultDivEle.appendChild(incomeInfoEle);
+        incomeInfoEle.classList.add('income-info-ele');
+        incomeInfoEle.appendChild(incomeIcon);
+        incomeIcon.classList.add('income-icon');
+
+        if(selectOptionParent.value == 'Salary'){
+            incomeIcon.classList.add('-wallet-3-line');
+
+        }else if(selectOptionParent.value == 'Freelancing'){
+            incomeIcon.classList.add('ri-money-dollar-circle-line');
+
+        }else if(selectOptionParent.value == 'Investiment'){
+            incomeIcon.classList.add('ri-hand-coin-line');
+
+        }else if(selectOptionParent.value == 'Stocks'){
+            incomeIcon.classList.add('ri-stock-fill');
+
+        }else if(selectOptionParent.value == 'Bitcoin'){
+            incomeIcon.classList.add('ri-btc-fill');
+
+        }else if(selectOptionParent.value == 'Bank Transfer'){
+            incomeIcon.classList.add('ri-bank-fill');
+
+        }else if(selectOptionParent.value == 'Youtube'){
+            incomeIcon.classList.add('ri-youtube-fill');
+
+        }else{
+            incomeIcon.classList.add('ri-copper-coin-fill');
+        }
+
+        incomeInfoEle.appendChild(incomeInfo);
+        incomeInfo.classList.add('income-info');
+        incomeInfo.appendChild(incomeInfoUpper);
+        incomeInfoUpper.classList.add('income-info-upper');
+        incomeInfoUpper.appendChild(div);
+        incomeInfoUpper.appendChild(p);
+        p.innerHTML = salaryTitle;
+        incomeInfo.appendChild(incomeInfoLower);
+        incomeInfoLower.classList.add('income-info-lower');
+        incomeInfoLower.appendChild(incomeInfoLowerAmountDiv1);
+        incomeInfoLowerAmountDiv1.classList.add('income-info-lower-amount');
+        incomeInfoLowerAmountDiv1.appendChild(amount);
+        amount.innerHTML = `$ ${salaryAmount}`;
+        incomeInfoLower.appendChild(incomeInfoLowerAmountDiv2);
+        incomeInfoLowerAmountDiv2.classList.add('income-info-lower-amount');
+        incomeInfoLowerAmountDiv2.appendChild(dateIcon);
+        dateIcon.classList.add('ri-calendar-fill');
+        incomeInfoLowerAmountDiv2.appendChild(date);
+        date.innerHTML = IncomeDate;
+        incomeInfoLower.appendChild(incomeInfoLowerAmountDiv3);
+        incomeInfoLowerAmountDiv3.classList.add('income-info-lower-amount');
+        incomeInfoLowerAmountDiv3.appendChild(msgIcon);
+        msgIcon.classList.add('ri-chat-3-fill');
+        incomeInfoLowerAmountDiv3.appendChild(msg);
+        msg.innerHTML = userMsg;
+        incomeInputResultDivEle.appendChild(deleteBtn);
+        deleteBtn.classList.add('del-income-ele');
+        deleteBtn.appendChild(deleteIcon);
+        deleteIcon.classList.add('ri-delete-bin-7-fill');
+        deleteBtn.setAttribute('onclick', 'deleteIncomeEle(this)')
+
+        let totalIncomeval = parseInt(totalIncome.innerHTML);
+        let salaryAmountNum = parseInt(salaryAmount);
+        totalIncomeval = totalIncomeval + salaryAmountNum;
+        totalIncome.innerHTML = totalIncomeval;
+
+        salaryTitleInput.value = "";
+        salaryAmountInput.value = "";
+        IncomeDateInput.value = "";
+        userMsgInput.value = "";
+
+    }else{
+        alert("Please fill all required fields");
+    }
+
 }
-function gosignuppage() {
-  // console.log('hello')
-  login_container.classList.add("hidden");
-  Signup_container.classList.remove("hidden");
-}
-function signup() {
-  // console.log('hey')
 
-  const email = email_inpu.value;
-  const password = password_inpu.value;
-  const conform_password = conform_password_inpu.value;
-  const name = user_name.value;
-  console.log(name, email, password, conform_password);
-  const symbol = email.indexOf("@gmail.com");
-  if (
-    !email_inpu.value ||
-    !password_inpu.value ||
-    !conform_password_inpu.value
-  ) {
-    alert("plz Enter a required fields");
-    return;
-  }
-  if (symbol == -1) {
-    alert("plz Enter a correct Email");
-    return;
-  }
-  if (conform_password != password) {
-    alert("plz match your password");
-
-    return;
-  }
-
-  if (password_inpu.value.length < 8) {
-    alert("plz Enter a 8 character password");
-    return;
-  }
-  email_inpu.value = "";
-  password_inpu.value = "";
-  conform_password_inpu.value = "";
-  user_name.value = "";
-  console.log("signup successfully");
-}
-
-function login() {
-  // console.log("h.r")
-
-  const login_Email = login_email.value;
-  const login_Password = login_password.value;
-  console.log(login_Email, login_Password);
-
-  const symbol = login_Email.indexOf("@gmail.com");
-  if (!login_email.value || !login_password.value) {
-    alert("plz Enter a required fields");
-    return;
-  }
-  if (symbol == -1) {
-    alert("plz Enter a correct Email");
-    return;
-  }
-  if (login_password.value.length < 8) {
-    alert("plz Enter a 8 character password");
-    return;
-  }
-  login_email.value = "";
-  login_password.value = "";
-  console.log("login successfully");
+function deleteIncomeEle(ele){
+    div = ele.parentElement;
+    div.remove();
 }
