@@ -378,29 +378,42 @@ const ShowExpense = (data) => {
 
 const FetchData = async () => {
   const { data, error } = await supabaseClient.from("finance app").select();
-  finance_data.push(...data);
-  mixArry.push(...data);
-  IncomeShow(data);
-  ChartGraphs(data);
-  FetchTotal();
+  data?.forEach((item) => {
+    if (item?.email === email) {
+      finance_data.push(item);
+      mixArry.push(item);
+      IncomeShow(ExpenseArry);
+      ChartGraphs(ExpenseArry);
+      FetchTotal();
+    }
+  });
 };
 
 FetchData();
 
 const FetchTotal = async () => {
   const { data, error } = await supabaseClient.from("showtotal").select();
-  TotalArry.push(...data);
-  TotalShow(data);
+  data?.forEach((item) => {
+    if (item?.email === email) {
+      TotalArry.push(item);
+      TotalShow([item]);
+    }
+  });
 };
 
 FetchTotal();
 
 const FetchExpense = async () => {
   const { data, error } = await supabaseClient.from("expense").select();
-  ExpenseArry.push(...data);
-  mixArry.push(...data);
-  ShowExpense(data);
-  ChartGraphs(data);
+  data?.forEach((item) => {
+    if (item?.email == email) {
+      // console.log(item);
+      ExpenseArry.push(item);
+      mixArry.push(item);
+      ShowExpense(ExpenseArry);
+      ChartGraphs(ExpenseArry);
+    }
+  });
 };
 
 FetchExpense();
