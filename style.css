@@ -1,21 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
-
+body {
+  font-family: "Noto Sans", serif;
+}
 .hidden {
   display: none;
 }
 
 .login_container {
-  text-align: center;
+  text-align: start;
   border-radius: 10px;
   height: 430px;
   width: 400px;
   padding-top: 5px;
-  margin-top: 50px;
-  margin-left: 100px;
+  margin-top: 130px;
+  margin-left: 50px;
 }
 .mean_dev {
   display: flex;
@@ -26,7 +30,7 @@
 }
 
 .inputs {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 input {
@@ -37,8 +41,11 @@ input {
   border-right: none;
   border-left: none;
   border-top: none;
-  border-bottom: 2px solid green;
+  border-bottom: 1.5px solid gray;
   margin-top: 10px;
+}
+input:focus {
+  border-bottom: 1.5px solid blue;
 }
 
 #para1 {
@@ -62,11 +69,10 @@ input {
   color: white;
 }
 .Signup_container {
-  text-align: center;
-  height: 430px;
+  text-align: start;
   width: 400px;
   margin-top: 50px;
-  margin-left: 100px;
+  margin-left: 50px;
 }
 
 #Signup_btn {

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -12,146 +13,96 @@
       referrerpolicy="no-referrer"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="container">
-      <!-- sidebar -->
-      <div class="sidebar relative">
-        <div class="col-main pt-[5rem] flex flex-col">
-          <div class="name flex items-center gap-3 pl-[1.5rem]">
-            <div
-              class="first-letter w-[50px] h-[50px] rounded-full flex justify-center items-center bg-white text-[17px] font-bold capatilize"
-            >
-              I
-            </div>
-            <div class="main-name-email">
-              <div class="name-1 text-base font-semibold">imran khan</div>
-              <div class="email-1 text-xs text-gray-500 mt-[2px]">
-                accimran@gmail.com
-              </div>
-            </div>
-          </div>
+    <div
+      style="display: flex; gap: 20px; justify-content: space-between"
+      class="parent"
+    >
+      <div class="login_container hidden pl-[1rem]">
+        <h1 class="text-[40px] leading-[48px] font-bold text-start">
+          Ready to start your <span class="text-[#3D6CF8]">success story?</span>
+        </h1>
 
-          <div class="dashboard-main pt-[2rem]">
-            <div class="dashboard-content flex flex-col gap-1">
-              <div
-                class="item flex items-center gap-3 text-[15px] font-normal py-[8px] pl-[1.5rem] cursor-pointer w-[100%]"
-              >
-                <div class="item-1">
-                  <i class="fa-solid fa-chart-line text-xl"></i>
-                </div>
-                <div class="text">Dashboard</div>
-              </div>
+        <p class="text-gray-400 text-base font-light text-start mt-2">
+          Login to our websits and Enjoy Expense tracker app
+        </p>
 
-              <div
-                class="item flex items-center gap-3 text-[15px] font-normal py-[8px] pl-[1.5rem] cursor-pointer w-[100%]"
-              >
-                <div class="item-2">
-                  <i class="fa-solid fa-wallet text-xl"></i>
-                </div>
-                <div class="text">view transiction</div>
-              </div>
+        <div class="inputs">
+          <input id="login_email" type="text" placeholder="Enter your email" />
 
-              <div
-                class="item flex items-center gap-3 text-[15px] font-normal py-[8px] pl-[1.5rem] cursor-pointer w-[100%]"
-              >
-                <div class="item-3">
-                  <i class="fa-solid fa-money-bill-trend-up text-xl"></i>
-                </div>
-                <div class="text">income</div>
-              </div>
-              <div
-                class="item flex items-center gap-3 text-[15px] font-normal py-[8px] pl-[1.5rem] cursor-pointer w-[100%]"
-              >
-                <div class="item-4">
-                  <i class="fas fa-solid fa-chart-line text-xl"></i>
-                </div>
-                <div class="text">expenses</div>
-              </div>
-            </div>
-          </div>
+          <input
+            id="login_password"
+            type="password"
+            placeholder="Enter your password"
+          />
 
-          <div
-            class="logout absolute bottom-[20px] left-[20px] cursor-pointer hover:text-red-700"
-          >
-            <div><i class="fa-solid fa-sign-out-alt"></i> Logout</div>
+          <div class="mt-4 flex flex-col gap-1">
+            <p id="para1" class="mt-5">forgot password?</p>
+
+            <p>
+              I don't have an account
+              <span
+                onclick="gosignuppage()"
+                style="color: blue; text-align: center; cursor: pointer"
+                >Signup</span
+              >
+            </p>
           </div>
         </div>
+        <button id="login_btn" onclick="login()">Login</button>
+        <br />
       </div>
 
-      <!-- Dashboard start -->
-      <div class="dashboard">
-        <div class="transaction">
-          <h1 class="text-xl font-bold">All Transactions</h1>
+      <div class="Signup_container py-[3rem] pl-[1rem]">
+        <h1 class="text-[40px] leading-[48px] font-bold text-start">
+          Ready to start your <span class="text-[#3D6CF8]">success story?</span>
+        </h1>
 
-          <div class="graph">
-            <canvas id="myChart"></canvas>
-          </div>
+        <p class="text-gray-400 text-base font-light text-start mt-2">
+          Signup to our websits and Enjoy Expense tracker app
+        </p>
 
-          <div class="total">
-            <div class="income">
-              <h4>Total Income</h4>
-              <p style="font-size: 32px; font-weight: bold">$ 16500</p>
-            </div>
-            <div class="expence">
-              <h4>Total Expences</h4>
-              <p style="font-size: 32px; font-weight: bold">$ 3920</p>
-            </div>
-          </div>
-
-          <div class="balance-div">
-            <div class="balance">
-              <h4>Total Balance</h4>
-              <p style="font-size: 32px; font-weight: bold; color: green">
-                $ 12580
-              </p>
-            </div>
-          </div>
+        <div class="inputs">
+          <input id="username" type="text" placeholder="Enter Your username" />
+          <br />
+          <input id="email_inpu" type="text" placeholder="Enter your email" />
+          <br />
+          <input
+            id="password_inpu"
+            type="password"
+            placeholder="Enter your password"
+          />
+          <br />
+          <input
+            id="conform_password_inpu"
+            type="password"
+            placeholder="Conform your password"
+          />
+          <br />
+          <br />
+          <p>
+            I have an account
+            <span
+              onclick="gologinpage()"
+              style="color: blue; text-align: center; cursor: pointer"
+              >Login</span
+            >
+          </p>
         </div>
+        <button id="Signup_btn" onclick="signup()">Signup</button>
+        <br />
+      </div>
 
-        <div class="history">
-          <h4>Recent History</h4>
-
-          <div class="history-outer-div">
-            <div class="history-ele">
-              <p>Dentist Appointment</p>
-              <p>-$120</p>
-            </div>
-            <div class="history-ele">
-              <p>Dentist Appointment</p>
-              <p>-$120</p>
-            </div>
-            <div class="history-ele">
-              <p>Dentist Appointment</p>
-              <p>-$120</p>
-            </div>
-          </div>
-
-          <div class="range-outer-div">
-            <div class="range-ele-1">
-              <p>Min</p>
-              <h4>Salary</h4>
-              <p>Max</p>
-            </div>
-            <div class="range-ele">
-              <p>$1200</p>
-              <p>$8000</p>
-            </div>
-            <div class="range-ele-1">
-              <p>Min</p>
-              <h4>Expence</h4>
-              <p>Max</p>
-            </div>
-            <div class="range-ele">
-              <p>$120</p>
-              <p>$3000</p>
-            </div>
-          </div>
-        </div>
+      <div class="img">
+        <img
+          style="width: 500px; height: 500px; margin-top: 10px"
+          src="./assets/expense-tracker-app.png"
+          alt=""
+        />
       </div>
     </div>
   </body>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
 </html>
