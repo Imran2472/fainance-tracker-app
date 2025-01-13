@@ -22,5 +22,3 @@ const ChartUi = () => {
     },
   });
 };
-
-ChartUi();
