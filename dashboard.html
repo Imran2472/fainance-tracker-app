@@ -17,10 +17,11 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container_dashboard max-[1150px]:h-[max-content]">
       <!-- sidebar -->
-      <div class="sidebar relative">
-        <div class="col-main pt-[5rem] flex flex-col">
+      <div class="sidebar relative max-[1150px]:h-[90vh] max-[1150px]:sticky max-[1150px]:top-0 max-[840px]:hidden max-[840px]:fixed max-[840px]:top-0 max-[840px]:left-0 max-[840px]:w-[300px] max-[840px]:rounded-none max-[840px]:h-[100vh]">
+        <div class="col-main pt-[5rem] flex flex-col ">
+          <span class="hidden max-[840px]:block absolute top-[1rem] right-[1rem] bg-white px-2 py-1 rounded-md" ><i class="fa-solid fa-xmark" id="CloseBtn"></i></span>
           <div class="name flex items-center gap-3 pl-[1.5rem]">
             <div
               class="first-letter w-[50px] h-[50px] rounded-full flex justify-center items-center bg-white text-[17px] font-bold capatilize"
@@ -81,13 +82,59 @@
       </div>
 
       <!-- Dashboard start -->
-      <div class="dashboard" id="dashboard">
-        <div class="transaction">
-          <h1 class="text-xl font-bold">All Transactions</h1>
+      <div class="dashboard max-[840px]:w-[100%]" id="dashboard">
+        <div class="transaction max-[1150px]:w-[100%]">
+          <h1 class="text-xl font-bold max-[840px]:flex justify-between items-center">
+            <span class="hidden max-[840px]:block" ><i class="fa-solid fa-bars" id="menubar"></i></span>
+            <span>All Transactions</span>
+          </h1>
 
           <div class="graph">
-            <canvas id="chartDiv"></canvas>
+            <canvas id="chartDiv" class="w-[100%] h-[100%]"></canvas>
           </div>
+
+          <!-- ---history---- -->
+
+            <div class="history hidden max-[1150px]:flex max-[1150px]:w-[100%]">
+          <h4>Recent History</h4>
+
+          <div class="history-outer-div">
+            <div class="history-ele">
+              <p>Dentist Appointment</p>
+              <p>-$120</p>
+            </div>
+            <div class="history-ele">
+              <p>Dentist Appointment</p>
+              <p>-$120</p>
+            </div>
+            <div class="history-ele">
+              <p>Dentist Appointment</p>
+              <p>-$120</p>
+            </div>
+          </div>
+
+          <div class="range-outer-div">
+            <div class="range-ele-1">
+              <p>Min</p>
+              <h4>Salary</h4>
+              <p>Max</p>
+            </div>
+            <div class="range-ele">
+              <p>$1200</p>
+              <p>$8000</p>
+            </div>
+            <div class="range-ele-1">
+              <p>Min</p>
+              <h4>Expence</h4>
+              <p>Max</p>
+            </div>
+            <div class="range-ele">
+              <p>$120</p>
+              <p>$3000</p>
+            </div>
+          </div>
+        </div>
+          <!-- ---history---- -->
 
           <div class="total">
             <div class="income_box">
@@ -110,7 +157,7 @@
           </div>
         </div>
 
-        <div class="history">
+        <div class="history max-[1150px]:hidden">
           <h4>Recent History</h4>
 
           <div class="history-outer-div">

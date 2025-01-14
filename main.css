@@ -7,13 +7,17 @@
 }
 body {
   font-family: "Noto Sans", serif;
+  width: 100%;
+  max-width: 100%;
 }
 
-.container {
+.container_dashboard {
   display: flex;
   gap: 16px;
   width: 100%;
+  max-width: 100%;
   height: 100vh;
+  margin: 0 auto;
   background-color: rgb(230, 185, 192);
   padding: 16px;
 }
@@ -27,7 +31,7 @@ body {
 
 .dashboard {
   width: 80%;
-  height: 100%;
+  /* height: 100%; */
   background-color: lavender;
   border-radius: 12px;
   padding: 12px;
@@ -46,7 +50,7 @@ body {
 
 .graph {
   width: 100%;
-  height: 50%;
+  height: 250px;
   /* border: 1px solid black; */
   border-radius: 8px;
   background-color: white;
@@ -183,8 +187,8 @@ body {
   color: #800000;
 }
 
-/* income-input-container */
-.income-input-container {
+/* income-input-container_dashboard */
+.income-input-container_dashboard {
   width: 100%;
   height: 100%;
   display: flex;

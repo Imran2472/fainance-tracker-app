@@ -25,6 +25,18 @@ const GetToken = () => {
 
 GetToken();
 
+const sidebar = document.querySelector(".sidebar");
+const menubar = document.querySelector("#menubar");
+const CloseBtn = document.querySelector("#CloseBtn");
+
+menubar.addEventListener("click", () => {
+  sidebar.classList.remove("max-[840px]:hidden");
+  console.log("rin");
+});
+CloseBtn.addEventListener("click", () => {
+  sidebar.classList.add("max-[840px]:hidden");
+});
+
 logout.addEventListener("click", () => {
   alert("You have logged out successfully");
   localStorage.removeItem("sb-asmdqoxecgvlyxwstgyk-auth-token");
@@ -85,6 +97,11 @@ income_form_ele.addEventListener("submit", async (e) => {
   const enter_date = IncomeDateInput.value;
   const categories = selectOptionParent.value;
   const reference = userMsgInput.value;
+
+  if (salary_amount > 8000) {
+    alert("You have exceeded the maximum income limit of 8000");
+    return;
+  }
 
   for (let i = 0; i < TotalArry.length; i++) {
     if (TotalArry[i]?.email === email) {
@@ -183,6 +200,11 @@ expenseForm.addEventListener("submit", async (e) => {
   const expense_date = expenseDateInput.value;
   const expance_categories = select_option_Ex.value;
   const reference = userMsgInputEx.value;
+
+  if (expense_amount > 8000) {
+    alert("You have exceeded the maximum expense limit of 8000");
+    return;
+  }
 
   for (let i = 0; i < TotalArry.length; i++) {
     if (TotalArry[i]?.email === email) {
