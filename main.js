@@ -26,16 +26,21 @@ const GetToken = () => {
 GetToken();
 
 const sidebar = document.querySelector(".sidebar");
-const menubar = document.querySelector("#menubar");
+const menubar = document.querySelectorAll(".menubar");
 const CloseBtn = document.querySelector("#CloseBtn");
 
-menubar.addEventListener("click", () => {
-  sidebar.classList.remove("max-[840px]:hidden");
-  console.log("rin");
+menubar.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    sidebar.classList.remove("max-[840px]:hidden");
+  });
 });
 CloseBtn.addEventListener("click", () => {
-  sidebar.classList.add("max-[840px]:hidden");
+  CloseSideBar();
 });
+
+const CloseSideBar = () => {
+  sidebar.classList.add("max-[840px]:hidden");
+};
 
 logout.addEventListener("click", () => {
   alert("You have logged out successfully");

@@ -85,17 +85,17 @@
       <div class="dashboard max-[840px]:w-[100%]" id="dashboard">
         <div class="transaction max-[1150px]:w-[100%]">
           <h1 class="text-xl font-bold max-[840px]:flex justify-between items-center">
-            <span class="hidden max-[840px]:block" ><i class="fa-solid fa-bars" id="menubar"></i></span>
+            <span class="hidden max-[840px]:block" ><i class="fa-solid fa-bars menubar" ></i></span>
             <span>All Transactions</span>
           </h1>
 
-          <div class="graph">
-            <canvas id="chartDiv" class="w-[100%] h-[100%]"></canvas>
+          <div class="graph max-[840px]:h-[400px] max-[840px]:mt-5 max-[540px]:h-[auto]">
+            <canvas id="chartDiv" class="w-[100%] h-[100%] max-[540px]:h-[670px]"></canvas>
           </div>
 
           <!-- ---history---- -->
 
-            <div class="history hidden max-[1150px]:flex max-[1150px]:w-[100%]">
+            <div class="history hidden max-[1150px]:flex max-[1150px]:w-[100%] max-[840px]:h-[auto] max-[840px]:py-[1rem]">
           <h4>Recent History</h4>
 
           <div class="history-outer-div">
@@ -198,16 +198,20 @@
         </div>
       </div>
     
-      <div class="income-dashboard dashboard hidden" id="income">
+      <div class="income-dashboard dashboard hidden max-[840px]:w-[100%]" id="income">
 
-            <h1>Incomes</h1>
+        
+                      <h1 class="text-xl font-bold max-[840px]:flex justify-between items-center">
+            <span class="hidden max-[840px]:block" ><i class="fa-solid fa-bars menubar"></i></span>
+            <span>Incomes</span>
+          </h1>
 
             <div class="income-total">
                 <p>Total Income: <p style="color: green; font-size: 28px;">$<span id="totalIncome">0</span></p></p>
             </div>
 
-            <div class="income-input-container">
-                <form id="income_form_ele" class="income-input-div">
+            <div class="income-input-container max-[840px]:flex-col max-[840px]:w-[100%]">
+                <form id="income_form_ele" class="income-input-div max-[840px]:w-[100%]">
                     <input id="salaryTitle" type="text" required placeholder="Salary Title">
                     <input id="salaryAmount" type="number" required placeholder="Salary Amount">
                     <input id="IncomeDate" type="date" required placeholder="Enter A Date">
@@ -226,7 +230,7 @@
                     <button type="submit">+ Add Income</button>
                   </form>
     
-                <div id="incomeParent" class="income-input-result-div">
+                <div id="incomeParent" class="income-input-result-div max-[840px]:w-[100%] max-[840px]:mt-9">
 
                     <!-- <div class="income-input-result-div-ele">
                         <div class="income-info-ele">
@@ -270,16 +274,20 @@
 
 
       
-  <div class="income-dashboard dashboard hidden" id="expense">
+  <div class="income-dashboard dashboard hidden max-[840px]:w-[100%]" id="expense">
 
-            <h1>Expense</h1>
+          
+                      <h1 class="text-xl font-bold max-[840px]:flex justify-between items-center">
+            <span class="hidden max-[840px]:block" ><i class="fa-solid fa-bars menubar"></i></span>
+            <span>Expense</span>
+          </h1>
 
             <div class="expense-total">
                 <p>Total Expense: <p style="color: #800000; font-size: 28px;"><div id="totalexpense_page" class="show_page_total income-total-span-expense">$ 0</div></p></p>
             </div>
 
-            <div class="income-input-container">
-                <form class="income-input-div" id="expense_form">
+            <div class="income-input-container max-[840px]:flex-col max-[840px]:w-[100%]">
+                <form class="income-input-div max-[840px]:w-[100%]" id="expense_form">
                     <input id="expenseTitle" type="text" required placeholder="Expense Title">
                     <input id="expenseAmount" type="number" required placeholder="Expense Amount">
                     <input id="expenseDate" type="date" required placeholder="Enter A Date">
@@ -298,7 +306,7 @@
                     <button>- Add Expense</button>
                   </form>
     
-                <div id="expenseParent" class="income-input-result-div">
+                <div id="expenseParent" class="income-input-result-div max-[840px]:w-[100%] max-[840px]:mt-9">
 
                     <!-- <div class="income-input-result-div-ele">
                         <div class="income-info-ele">
