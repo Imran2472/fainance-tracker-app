@@ -119,13 +119,7 @@ income_form_ele.addEventListener("submit", async (e) => {
         income_total: salTotal,
       })
       .select();
-    alert("transaction inserted successfully");
-    salaryTitleInput.value = "";
-    salaryAmountInput.value = "";
-    IncomeDateInput.value = "";
-    selectOptionParent.value = "";
-    userMsgInput.value = "";
-
+    FetchTotal();
     if (totalUserFind) {
       const totalIncrease = (total += salary_amount);
       const { data, error } = await supabaseClient
@@ -134,6 +128,14 @@ income_form_ele.addEventListener("submit", async (e) => {
         .eq("id", total_id)
         .select();
     }
+    alert("transaction inserted successfully");
+    salaryTitleInput.value = "";
+    salaryAmountInput.value = "";
+    IncomeDateInput.value = "";
+    selectOptionParent.value = "";
+    userMsgInput.value = "";
+
+    FetchTotal();
   } else {
     const { data } = await supabaseClient
       .from("finance app")
@@ -147,14 +149,20 @@ income_form_ele.addEventListener("submit", async (e) => {
         income_total: salary_amount,
       })
       .select();
-    console.log(data);
+
+    FetchTotal();
     const { error } = await supabaseClient
       .from("showtotal")
       .insert({ email, total_amount: salary_amount })
       .select();
+    alert("transaction inserted successfully");
+    salaryTitleInput.value = "";
+    salaryAmountInput.value = "";
+    IncomeDateInput.value = "";
+    selectOptionParent.value = "";
+    userMsgInput.value = "";
   }
   FetchData();
-  FetchTotal();
 });
 
 // expense component get
@@ -196,7 +204,7 @@ expenseForm.addEventListener("submit", async (e) => {
   }
 
   if (ExtotalUserFind) {
-    const ExpenseTotal = (exTotalMain += expense_amount);
+    const ExpenseTotal = exTotalMain + expense_amount;
     const { data } = await supabaseClient
       .from("expense")
       .insert({
@@ -206,65 +214,62 @@ expenseForm.addEventListener("submit", async (e) => {
         enter_date: expense_date,
         categories: expance_categories,
         reference,
-        total_expense: ExpenseTotal,
+        total_expense: ExpenseTotal ? ExpenseTotal : expense_amount,
       })
       .select();
+
     const minusTotal = extotal - expense_amount;
     const { error } = await supabaseClient
       .from("showtotal")
       .update({ total_amount: minusTotal })
       .eq("id", extotal_id)
       .select();
-    if (data) {
-      alert("transaction inserted successfully");
-      expenseTitleInput.value = "";
-      expenseAmountInput.value = "";
-      expenseDateInput.value = "";
-      select_option_Ex.value = "";
-      userMsgInputEx.value = "";
-    }
+
+    alert("transaction inserted successfully");
+    expenseTitleInput.value = "";
+    expenseAmountInput.value = "";
+    expenseDateInput.value = "";
+    select_option_Ex.value = "";
+    userMsgInputEx.value = "";
+    FetchExpense();
+    FetchTotal();
   }
-  FetchExpense();
-  FetchTotal();
 });
 
-let expense_total_ele = document.querySelector("#totalexpense_page");
 let income_total_dash = document.querySelector("#total_income");
-let expense_total_dash = document.querySelector("#total_expense_dash");
+
 let salary_total_ele = document.querySelector(".income-total");
 const finance_body = document.querySelector("#incomeParent");
 const expense_body = document.querySelector("#expenseParent");
 const IncomeShow = (data) => {
-  finance_body.innerHTML = "";
-  data?.forEach((item) => {
-    const div = document.createElement("div");
-    div.classList.add("income-input-result-div-ele");
-    salary_total_ele.classList.add("income-total-span");
-    item.income_total
-      ? (salary_total_ele.innerHTML = `$ ${item?.income_total}`)
-      : (salary_total_ele.innerHTML = `$ 0`);
-    item.income_total
-      ? (income_total_dash.innerHTML = `$ ${item?.income_total}`)
-      : (income_total_dash.innerHTML = `$ 0`);
+  const div = document.createElement("div");
+  div.classList.add("income-input-result-div-ele");
+  salary_total_ele.classList.add("income-total-span");
+  data.income_total
+    ? (salary_total_ele.innerHTML = `$ ${data?.income_total}`)
+    : (salary_total_ele.innerHTML = `$ 0`);
+  data.income_total
+    ? (income_total_dash.innerHTML = `$ ${data?.income_total}`)
+    : (income_total_dash.innerHTML = `$ 0`);
 
-    div.innerHTML = `
+  const content = `
              <div class="income-input-result-div-ele">
                         <div class="income-info-ele">
 
                            <i class="ri-${
-                             item?.categories == "Sallary"
+                             data?.categories == "Sallary"
                                ? "cash"
-                               : item?.categories == "Freelancer"
+                               : data?.categories == "Freelancer"
                                ? "creative"
-                               : item?.categories == "Investiment"
+                               : data?.categories == "Investiment"
                                ? "verified"
-                               : item?.categories == "Stocks"
+                               : data?.categories == "Stocks"
                                ? "funds"
-                               : item?.categories == "Bitcoin"
+                               : data?.categories == "Bitcoin"
                                ? "btc"
-                               : item?.categories == "Bank Transfer"
+                               : data?.categories == "Bank Transfer"
                                ? "bank"
-                               : item?.categories == "Youtube"
+                               : data?.categories == "Youtube"
                                ? "youtube"
                                : "lightbulb"
                            }-fill income-icon"></i>
@@ -272,21 +277,21 @@ const IncomeShow = (data) => {
                             <div class="income-info">
                                 <div class="income-info-upper">
                                     <div></div>
-                                    <p>${item?.salary_title}</p>
+                                    <p>${data?.salary_title}</p>
                                 </div>
 
                                 <div class="income-info-lower">
 
                                     <div class="income-info-lower-amount">
-                                        <p>$ ${item.salary_amount}</p>
+                                        <p>$ ${data.salary_amount}</p>
                                     </div>
                                     <div class="income-info-lower-amount">
                                         <i class="ri-calendar-fill"></i>
-                                        <p>${item?.enter_date}</p>
+                                        <p>${data?.enter_date}</p>
                                     </div>
                                     <div class="income-info-lower-amount">
                                         <i class="ri-chat-3-fill"></i>
-                                        <p>${item?.reference}</p>
+                                        <p>${data?.reference}</p>
                                     </div>
                                     
                                 </div>
@@ -299,42 +304,43 @@ const IncomeShow = (data) => {
                         </button>
                     </div>
     `;
-
-    finance_body.appendChild(div);
-  });
+  div.innerHTML = content;
+  finance_body.appendChild(div);
 };
 
-const ShowExpense = (data) => {
-  expense_body.innerHTML = "";
-  data?.forEach((item) => {
-    const div = document.createElement("div");
-    div.classList.add("income-input-result-div-ele");
-    expense_total_ele.classList.add("income-total-span", "text-[#800000]");
-    item.total_expense
-      ? (expense_total_ele.innerHTML = `$ ${item?.total_expense}`)
-      : (expense_total_ele.innerHTML = `$ 0`);
-    item.total_expense
-      ? (expense_total_dash.innerHTML = `$ ${item?.total_expense}`)
-      : (expense_total_dash.innerHTML = `$ 0`);
+let expense_total_dash = document.querySelector("#total_expense_dash");
+let expense_total_ele = document.querySelector(".show_page_total");
 
-    div.innerHTML = `
+const ShowExpense = (data) => {
+  const div = document.createElement("div");
+  div.classList.add("income-input-result-div-ele");
+  expense_total_ele.classList.add("income-total-span", "text-[#800000]");
+  data?.total_expense
+    ? (expense_total_ele.innerHTML = "$ " + data?.total_expense)
+    : (expense_total_ele.innerHTML = "$ 0");
+
+  data.total_expense
+    ? (expense_total_dash.innerHTML = `$ ${data?.total_expense}`)
+    : (expense_total_dash.innerHTML = `$ 0`);
+
+  const content = `
              <div class="income-input-result-div-ele">
                         <div class="income-info-ele">
 
                             <i class="ri-${
-                              item?.categories == "Sallary"
+                              data?.categories == "Sallary"
                                 ? "cash"
-                                : item?.categories == "Freelancer"
+                                : data?.categories == "Freelancer"
                                 ? "creative"
-                                : item?.categories == "Investiment"
+                                : data?.categories == "Investiment"
                                 ? "verified"
-                                : item?.categories == "Stocks"
+                                : data?.categories == "Stocks"
                                 ? "funds"
-                                : item?.categories == "Bitcoin"
+                                : data?.categories == "Bitcoin"
                                 ? "btc"
-                                : item?.categories == "Bank Transfer"
+                                : data?.categories == "Bank Transfer"
                                 ? "bank"
-                                : item?.categories == "Youtube"
+                                : data?.categories == "Youtube"
                                 ? "youtube"
                                 : "lightbulb"
                             }-fill income-icon"></i>
@@ -342,21 +348,21 @@ const ShowExpense = (data) => {
                             <div class="income-info">
                                 <div class="expense-info-upper">
                                     <div></div>
-                                    <p>${item?.expense_title}</p>
+                                    <p>${data?.expense_title}</p>
                                 </div>
 
                                 <div class="income-info-lower">
 
                                     <div class="income-info-lower-amount">
-                                        <p>$ ${item.expense_amount}</p>
+                                        <p>$ ${data.expense_amount}</p>
                                     </div>
                                     <div class="income-info-lower-amount">
                                         <i class="ri-calendar-fill"></i>
-                                        <p>${item?.enter_date}</p>
+                                        <p>${data?.enter_date}</p>
                                     </div>
                                     <div class="income-info-lower-amount">
                                         <i class="ri-chat-3-fill"></i>
-                                        <p>${item?.reference}</p>
+                                        <p>${data?.reference}</p>
                                     </div>
                                     
                                 </div>
@@ -369,34 +375,34 @@ const ShowExpense = (data) => {
                         </button>
                     </div>
     `;
-
-    expense_body.appendChild(div);
-  });
+  div.innerHTML = content;
+  expense_body.appendChild(div);
 };
 
 // fetch data
 
 const FetchData = async () => {
+  finance_body.innerHTML = "";
   const { data, error } = await supabaseClient.from("finance app").select();
-  data?.forEach((item) => {
+  data?.filter((item) => {
     if (item?.email === email) {
       finance_data.push(item);
       mixArry.push(item);
-      IncomeShow(ExpenseArry);
-      ChartGraphs(ExpenseArry);
-      FetchTotal();
+      IncomeShow(item);
     }
   });
+  FetchTotal();
+  ChartGraphs(finance_data);
 };
 
 FetchData();
 
 const FetchTotal = async () => {
   const { data, error } = await supabaseClient.from("showtotal").select();
-  data?.forEach((item) => {
+  data?.filter((item) => {
     if (item?.email === email) {
       TotalArry.push(item);
-      TotalShow([item]);
+      TotalShow(item);
     }
   });
 };
@@ -404,26 +410,28 @@ const FetchTotal = async () => {
 FetchTotal();
 
 const FetchExpense = async () => {
+  expense_body.innerHTML = "";
   const { data, error } = await supabaseClient.from("expense").select();
-  data?.forEach((item) => {
+  data?.filter((item) => {
     if (item?.email == email) {
-      // console.log(item);
       ExpenseArry.push(item);
-      mixArry.push(item);
-      ShowExpense(ExpenseArry);
-      ChartGraphs(ExpenseArry);
+      ShowExpense(item);
     }
   });
+  FetchTotal();
+  mixArry.push(ExpenseArry);
+  ChartGraphs(ExpenseArry);
 };
 
 FetchExpense();
 
 const totols = document.querySelector("#totals");
 const TotalShow = (data) => {
-  data[0]?.total_amount
-    ? (totols.innerHTML = `$ ${data[0]?.total_amount}`)
+  data?.total_amount
+    ? (totols.innerHTML = `$ ${data?.total_amount}`)
     : (totols.innerHTML = "$ 0");
 };
+
 let myChart;
 let salary_amount_to_chart = [];
 let expense_salary_amount_to_Chart = [];
@@ -454,7 +462,6 @@ const ChartGraphs = (data) => {
   //   });
   // }
   data.forEach((chartData) => {
-    console.log(chartData);
     if (myChart) {
       myChart.destroy(); // Destroy the existing chart
     }
