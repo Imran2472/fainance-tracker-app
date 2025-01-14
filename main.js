@@ -270,7 +270,6 @@ const finance_body = document.querySelector("#incomeParent");
 const expense_body = document.querySelector("#expenseParent");
 const IncomeShow = (data) => {
   const div = document.createElement("div");
-  div.classList.add("income-input-result-div-ele");
   salary_total_ele.classList.add("income-total-span");
   data.income_total
     ? (salary_total_ele.innerHTML = `$ ${data?.income_total}`)
@@ -280,7 +279,7 @@ const IncomeShow = (data) => {
     : (income_total_dash.innerHTML = `$ 0`);
 
   const content = `
-             <div class="income-input-result-div-ele">
+             <div class="income-input-result-div-ele max-[400px]:relative">
                         <div class="income-info-ele">
 
                            <i class="ri-${
@@ -301,13 +300,13 @@ const IncomeShow = (data) => {
                                : "lightbulb"
                            }-fill income-icon"></i>
 
-                            <div class="income-info">
+                            <div class="income-info ">
                                 <div class="income-info-upper">
                                     <div></div>
                                     <p>${data?.salary_title}</p>
                                 </div>
 
-                                <div class="income-info-lower">
+                                <div class="income-info-lower max-[400px]:flex max-[400px]:flex-wrap">
 
                                     <div class="income-info-lower-amount">
                                         <p>$ ${data.salary_amount}</p>
@@ -326,7 +325,7 @@ const IncomeShow = (data) => {
 
                         </div>
 
-                        <button class="del-income-ele">
+                        <button class="del-income-ele max-[400px]:h-[30px] max-[400px]:w-[30px] max-[400px]:text-[15px] ">
                             <i class="ri-delete-bin-7-fill"></i>
                         </button>
                     </div>
@@ -340,7 +339,7 @@ let expense_total_ele = document.querySelector(".show_page_total");
 
 const ShowExpense = (data) => {
   const div = document.createElement("div");
-  div.classList.add("income-input-result-div-ele");
+
   expense_total_ele.classList.add("income-total-span", "text-[#800000]");
   data?.total_expense
     ? (expense_total_ele.innerHTML = "$ " + data?.total_expense)
@@ -378,7 +377,7 @@ const ShowExpense = (data) => {
                                     <p>${data?.expense_title}</p>
                                 </div>
 
-                                <div class="income-info-lower">
+                                <div class="income-info-lower max-[400px]:flex max-[400px]:flex-wrap">
 
                                     <div class="income-info-lower-amount">
                                         <p>$ ${data.expense_amount}</p>
@@ -397,7 +396,7 @@ const ShowExpense = (data) => {
 
                         </div>
 
-                        <button class="del-income-ele">
+                        <button class="del-income-ele max-[400px]:h-[30px] max-[400px]:w-[30px] max-[400px]:text-[15px]">
                             <i class="ri-delete-bin-7-fill"></i>
                         </button>
                     </div>

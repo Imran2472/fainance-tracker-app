@@ -17,9 +17,9 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div class="container_dashboard max-[1150px]:h-[max-content]">
+    <div class="container_dashboard max-[1150px]:h-[max-content] max-[400px]:p-2">
       <!-- sidebar -->
-      <div class="sidebar relative max-[1150px]:h-[90vh] max-[1150px]:sticky max-[1150px]:top-0 max-[840px]:hidden max-[840px]:fixed max-[840px]:top-0 max-[840px]:left-0 max-[840px]:w-[300px] max-[840px]:rounded-none max-[840px]:h-[100vh]">
+      <div class="sidebar relative max-[1150px]:h-[90vh] max-[1150px]:sticky max-[1150px]:top-0 max-[840px]:hidden max-[840px]:fixed max-[840px]:top-0 max-[840px]:left-0 max-[840px]:w-[300px] max-[840px]:rounded-none max-[840px]:h-[100vh] max-[840px]:z-[999]">
         <div class="col-main pt-[5rem] flex flex-col ">
           <span class="hidden max-[840px]:block absolute top-[1rem] right-[1rem] bg-white px-2 py-1 rounded-md" ><i class="fa-solid fa-xmark" id="CloseBtn"></i></span>
           <div class="name flex items-center gap-3 pl-[1.5rem]">
@@ -82,7 +82,7 @@
       </div>
 
       <!-- Dashboard start -->
-      <div class="dashboard max-[840px]:w-[100%]" id="dashboard">
+      <div class="dashboard max-[840px]:w-[100%] " id="dashboard">
         <div class="transaction max-[1150px]:w-[100%]">
           <h1 class="text-xl font-bold max-[840px]:flex justify-between items-center">
             <span class="hidden max-[840px]:block" ><i class="fa-solid fa-bars menubar" ></i></span>
@@ -139,18 +139,18 @@
           <div class="total">
             <div class="income_box">
               <h4>Total Income</h4>
-              <p style="font-size: 32px; font-weight: bold" id="total_income">$ 0</p>
+              <p id="total_income" class="max-[340px]:text-[22px] text-[32px] font-bold">$ 0</p>
             </div>
             <div class="expence_box">
               <h4>Total Expences</h4>
-              <p style="font-size: 32px; font-weight: bold" id="total_expense_dash">$ 0</p>
+              <p class="max-[340px]:text-[22px] text-[32px] font-bold" id="total_expense_dash">$ 0</p>
             </div>
           </div>
 
           <div class="balance-div">
             <div class="balance">
               <h4>Total Balance</h4>
-              <p style="font-size: 32px; font-weight: bold; color: green" id="totals">
+              <p class="max-[340px]:text-[22px] text-[32px] font-bold text-green-700" id="totals">
                 $ 0
               </p>
             </div>
@@ -210,7 +210,7 @@
                 <p>Total Income: <p style="color: green; font-size: 28px;">$<span id="totalIncome">0</span></p></p>
             </div>
 
-            <div class="income-input-container max-[840px]:flex-col max-[840px]:w-[100%]">
+            <div class="income-input-container_dashboard  max-[840px]:flex-col max-[840px]:w-[100%]">
                 <form id="income_form_ele" class="income-input-div max-[840px]:w-[100%]">
                     <input id="salaryTitle" type="text" required placeholder="Salary Title">
                     <input id="salaryAmount" type="number" required placeholder="Salary Amount">
@@ -286,7 +286,7 @@
                 <p>Total Expense: <p style="color: #800000; font-size: 28px;"><div id="totalexpense_page" class="show_page_total income-total-span-expense">$ 0</div></p></p>
             </div>
 
-            <div class="income-input-container max-[840px]:flex-col max-[840px]:w-[100%]">
+            <div class="income-input-container_dashboard max-[840px]:flex-col max-[840px]:w-[100%]">
                 <form class="income-input-div max-[840px]:w-[100%]" id="expense_form">
                     <input id="expenseTitle" type="text" required placeholder="Expense Title">
                     <input id="expenseAmount" type="number" required placeholder="Expense Amount">
