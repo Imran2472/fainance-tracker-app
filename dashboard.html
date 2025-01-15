@@ -45,14 +45,7 @@
                 <div class="text">Dashboard</div>
               </div>
 
-              <div
-                class="item flex items-center gap-3 text-[15px] font-normal py-[8px] pl-[1.5rem] cursor-pointer w-[100%]"
-              >
-                <div class="item-2">
-                  <i class="fa-solid fa-wallet text-xl"></i>
-                </div>
-                <div class="text">view transiction</div>
-              </div>
+              
 
               <div
                 class="item dashboard_btn income flex items-center gap-3 text-[15px] font-normal py-[8px] pl-[1.5rem] cursor-pointer w-[100%]"
@@ -70,6 +63,17 @@
                 </div>
                 <div class="text">expenses</div>
               </div>
+
+              <div
+                class="item dashboard_btn members flex items-center gap-3 text-[15px] font-normal py-[8px] pl-[1.5rem] cursor-pointer w-[100%]"
+              >
+                <div class="item-2">
+                  <i class="fa-solid fa-wallet text-xl"></i>
+                </div>
+                <div class="text">View Members</div>
+              </div>
+
+
             </div>
           </div>
 
@@ -97,20 +101,9 @@
 
             <div class="history hidden max-[1150px]:flex max-[1150px]:w-[100%] max-[840px]:h-[auto] max-[840px]:py-[1rem]">
           <h4>Recent History</h4>
+ 
+          <div class="history-outer-div-small flex flex-col gap-3 h-[300px] overflow-x-auto">
 
-          <div class="history-outer-div">
-            <div class="history-ele">
-              <p>Dentist Appointment</p>
-              <p>-$120</p>
-            </div>
-            <div class="history-ele">
-              <p>Dentist Appointment</p>
-              <p>-$120</p>
-            </div>
-            <div class="history-ele">
-              <p>Dentist Appointment</p>
-              <p>-$120</p>
-            </div>
           </div>
 
           <div class="range-outer-div">
@@ -160,19 +153,8 @@
         <div class="history max-[1150px]:hidden">
           <h4>Recent History</h4>
 
-          <div class="history-outer-div">
-            <div class="history-ele">
-              <p>Dentist Appointment</p>
-              <p>-$120</p>
-            </div>
-            <div class="history-ele">
-              <p>Dentist Appointment</p>
-              <p>-$120</p>
-            </div>
-            <div class="history-ele">
-              <p>Dentist Appointment</p>
-              <p>-$120</p>
-            </div>
+          <div class="history-outer-div h-[250px] overflow-x-auto">
+           
           </div>
 
           <div class="range-outer-div">
@@ -232,41 +214,7 @@
     
                 <div id="incomeParent" class="income-input-result-div max-[840px]:w-[100%] max-[840px]:mt-9">
 
-                    <!-- <div class="income-input-result-div-ele">
-                        <div class="income-info-ele">
-
-                            <i class="ri-youtube-fill income-icon"></i>
-
-                            <div class="income-info">
-                                <div class="income-info-upper">
-                                    <div></div>
-                                    <p>Shopify</p>
-                                </div>
-
-                                <div class="income-info-lower">
-
-                                    <div class="income-info-lower-amount">
-                                        <p>$ 8000</p>
-                                    </div>
-                                    <div class="income-info-lower-amount">
-                                        <i class="ri-calendar-fill"></i>
-                                        <p>11/01/2025</p>
-                                    </div>
-                                    <div class="income-info-lower-amount">
-                                        <i class="ri-chat-3-fill"></i>
-                                        <p>My December Earning</p>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <button class="del-income-ele">
-                            <i class="ri-delete-bin-7-fill"></i>
-                        </button>
-                    </div> -->
-                    
+                   
                 </div>
             </div>
 
@@ -308,42 +256,85 @@
     
                 <div id="expenseParent" class="income-input-result-div max-[840px]:w-[100%] max-[840px]:mt-9">
 
-                    <!-- <div class="income-input-result-div-ele">
-                        <div class="income-info-ele">
-
-                            <i class="ri-youtube-fill income-icon"></i>
-
-                            <div class="income-info">
-                                <div class="income-info-upper">
-                                    <div></div>
-                                    <p>Shopify</p>
-                                </div>
-
-                                <div class="income-info-lower">
-
-                                    <div class="income-info-lower-amount">
-                                        <p>$ 8000</p>
-                                    </div>
-                                    <div class="income-info-lower-amount">
-                                        <i class="ri-calendar-fill"></i>
-                                        <p>11/01/2025</p>
-                                    </div>
-                                    <div class="income-info-lower-amount">
-                                        <i class="ri-chat-3-fill"></i>
-                                        <p>My December Earning</p>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <button class="del-income-ele">
-                            <i class="ri-delete-bin-7-fill"></i>
-                        </button>
-                    </div> -->
-                    
                 </div>
+            </div>
+
+         </div>
+
+         <!-- ------members section----- -->
+  <div class="income-dashboard dashboard hidden max-[840px]:w-[100%] h-[100%] overflow-x-auto" id="members">
+
+          
+                      <h1 class="text-xl font-bold max-[840px]:flex justify-between items-center">
+            <span class="hidden max-[840px]:block" ><i class="fa-solid fa-bars menubar"></i></span>
+            <span>See Members</span>
+          </h1>
+
+            <div class="expense-total">
+                <p class="text-[25px] font-semibold text-gray-900">Meet Our <span class="text-blue-600">expert team</span><p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3">
+              <div class="col">
+                <div class="card p-5 bg-white rounded-lg">
+                  <div class="img">
+                    <img src="https://avatars.githubusercontent.com/u/162036965?v=4" alt="" class="max-[1300px]:w-[100%] max-[1300px]:h-[200px] w-[100%] max-[1700px]:h-[350px] rounded-lg object-cover">
+                  </div>
+                  <div class="info mt-3">
+                    <h1 class="text-[20px] font-semibold text-blue-600">Muhammad Imran</h1>
+                    <p class="text-gray-400 text-xs font-semibold mt-1">Full Stack Web Developer</p>
+                    <a href="https://github.com/Imran2472" target="_blank" class="py-[7px] w-[100%] text-center bg-blue-600 text-white block rounded-lg mt-3">Visit Profile</a>
+                  </div>
+                </div>
+              </div>
+                <div class="col">
+                <div class="card p-5 bg-white rounded-lg">
+                  <div class="img">
+                    <img src="https://avatars.githubusercontent.com/u/161205603?v=4" alt="" class="max-[1300px]:w-[100%] max-[1300px]:h-[200px] w-[100%] max-[1700px]:h-[350px] rounded-lg object-cover">
+                  </div>
+                  <div class="info mt-3">
+                    <h1 class="text-[20px] font-semibold text-blue-600">Ijaz khan</h1>
+                    <p class="text-gray-400 text-xs font-semibold mt-1">Full Stack Web Developer</p>
+                    <a href="https://github.com/ijazkhan09" target="_blank" class="py-[7px] w-[100%] text-center bg-blue-600 text-white block rounded-lg mt-3">Visit Profile</a>
+                  </div>
+                </div>
+              </div>
+               <div class="col">
+                <div class="card p-5 bg-white rounded-lg">
+                  <div class="img">
+                    <img src="/assets/reyan.jpg" alt="" class="max-[1300px]:w-[100%] max-[1300px]:h-[200px] w-[100%] max-[1700px]:h-[350px] rounded-lg object-cover">
+                  </div>
+                  <div class="info mt-3">
+                    <h1 class="text-[20px] font-semibold text-blue-600">Reyan Naseem</h1>
+                    <p class="text-gray-400 text-xs font-semibold mt-1">Full Stack Web Developer</p>
+                    <a href="https://github.com/ReyanNaseem" target="_blank" class="py-[7px] w-[100%] text-center bg-blue-600 text-white block rounded-lg mt-3">Visit Profile</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card p-5 bg-white rounded-lg">
+                  <div class="img">
+                    <img src="https://avatars.githubusercontent.com/u/176777851?v=4" alt="" class="max-[1300px]:w-[100%] max-[1300px]:h-[200px] w-[100%] max-[1700px]:h-[350px] rounded-lg object-cover">
+                  </div>
+                  <div class="info mt-3">
+                    <h1 class="text-[20px] font-semibold text-blue-600">Syed Hammad</h1>
+                    <p class="text-gray-400 text-xs font-semibold mt-1">Full Stack Web Developer</p>
+                    <a href="https://github.com/syedHammad350" target="_blank" class="py-[7px] w-[100%] text-center bg-blue-600 text-white block rounded-lg mt-3">Visit Profile</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card p-5 bg-white rounded-lg">
+                  <div class="img">
+                    <img src="https://avatars.githubusercontent.com/u/170956769?v=4" alt="" class="max-[1300px]:w-[100%] max-[1300px]:h-[200px] w-[100%] max-[1700px]:h-[350px] rounded-lg object-cover">
+                  </div>
+                  <div class="info mt-3">
+                    <h1 class="text-[20px] font-semibold text-blue-600">Abuzar</h1>
+                    <p class="text-gray-400 text-xs font-semibold mt-1">Full Stack Web Developer</p>
+                    <a href="https://github.com/Abu7ar" target="_blank" class="py-[7px] w-[100%] text-center bg-blue-600 text-white block rounded-lg mt-3">Visit Profile</a>
+                  </div>
+                </div>
+              </div>
             </div>
 
          </div>

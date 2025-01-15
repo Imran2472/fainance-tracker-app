@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: sans-serif;
+  outline: none !important;
 }
 body {
   font-family: "Noto Sans", serif;
@@ -12,15 +13,6 @@ body {
   display: none;
 }
 
-.login_container {
-  text-align: start;
-  border-radius: 10px;
-  height: 430px;
-  width: 400px;
-  padding-top: 5px;
-  margin-top: 130px;
-  margin-left: 50px;
-}
 .mean_dev {
   display: flex;
   height: 400px;
@@ -29,32 +21,15 @@ body {
   border: 2px solid red;
 }
 
-.inputs {
-  margin-top: 20px;
-}
-
 input {
-  width: 80%;
-  height: 40px;
-  padding: 5px;
   font-weight: bold;
   border-right: none;
   border-left: none;
   border-top: none;
   border-bottom: 1.5px solid gray;
-  margin-top: 10px;
 }
 input:focus {
   border-bottom: 1.5px solid blue;
-}
-
-#para1 {
-  margin-right: 190px;
-  color: blue;
-  font-size: none;
-  font-weight: normal;
-  font-size: 17px;
-  margin-top: 5px;
 }
 
 #login_btn {
@@ -67,12 +42,6 @@ input:focus {
   font-weight: bold;
   font-size: 1rem;
   color: white;
-}
-.Signup_container {
-  text-align: start;
-  width: 400px;
-  margin-top: 50px;
-  margin-left: 50px;
 }
 
 #Signup_btn {

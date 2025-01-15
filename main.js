@@ -221,6 +221,10 @@ expenseForm.addEventListener("submit", async (e) => {
     }
   }
 
+  if (extotal < expense_amount) {
+    alert("You don't have enough balance");
+    return;
+  }
   for (let i = 0; i < ExpenseArry.length; i++) {
     if (ExpenseArry[i]?.email === email) {
       foundExpense = true;
@@ -325,13 +329,30 @@ const IncomeShow = (data) => {
 
                         </div>
 
-                        <button class="del-income-ele max-[400px]:h-[30px] max-[400px]:w-[30px] max-[400px]:text-[15px] ">
+                        <button class="del-income-ele max-[400px]:h-[30px] max-[400px]:w-[30px] max-[400px]:text-[15px]" onclick="DeletIncome(${
+                          data?.id
+                        })">
                             <i class="ri-delete-bin-7-fill"></i>
                         </button>
                     </div>
     `;
   div.innerHTML = content;
   finance_body.appendChild(div);
+};
+
+const DeletIncome = async (id) => {
+  const response = await supabaseClient
+    .from("finance app")
+    .delete()
+    .eq("id", id);
+  if (response.error) {
+    console.error(response.error);
+    return;
+  } else {
+    alert("Transaction deleted successfully");
+  }
+  FetchData();
+  FetchTotal();
 };
 
 let expense_total_dash = document.querySelector("#total_expense_dash");
@@ -396,7 +417,9 @@ const ShowExpense = (data) => {
 
                         </div>
 
-                        <button class="del-income-ele max-[400px]:h-[30px] max-[400px]:w-[30px] max-[400px]:text-[15px]">
+                        <button class="del-income-ele max-[400px]:h-[30px] max-[400px]:w-[30px] max-[400px]:text-[15px]" onclick="DeleExpense(${
+                          data?.id
+                        })">
                             <i class="ri-delete-bin-7-fill"></i>
                         </button>
                     </div>
@@ -405,20 +428,64 @@ const ShowExpense = (data) => {
   expense_body.appendChild(div);
 };
 
+const DeleExpense = async (id) => {
+  const response = await supabaseClient.from("expense").delete().eq("id", id);
+  if (response.error) {
+    console.error(response.error);
+    return;
+  } else {
+    alert("Transaction deleted successfully");
+  }
+  FetchExpense();
+  FetchTotal();
+};
+
+// show Recent Transition
+
+const history_outer_div = document.querySelector(".history-outer-div");
+const history_outer_div_small = document.querySelector(
+  ".history-outer-div-small"
+);
+
+const RenderDataFinance = (data) => {
+  const div = document.createElement("div");
+  div.classList.add("history-ele");
+  const content = `
+                <p class="text-green-600">${data?.reference}</p>
+                <p class="text-green-600">$ ${data?.salary_amount}</p>
+      `;
+  div.innerHTML = content;
+  history_outer_div.appendChild(div);
+};
+const RenderDataFinanceMobile = (data) => {
+  const div = document.createElement("div");
+  div.classList.add("history-ele");
+  const content = `
+                <p class="text-green-600">${data?.reference}</p>
+                <p class="text-green-600">$ ${data?.salary_amount}</p>
+      `;
+  div.innerHTML = content;
+  history_outer_div_small.appendChild(div);
+};
+
 // fetch data
 
 const FetchData = async () => {
   finance_body.innerHTML = "";
+  history_outer_div.innerHTML = "";
+  history_outer_div_small.innerHTML = "";
   const { data, error } = await supabaseClient.from("finance app").select();
   data?.filter((item) => {
     if (item?.email === email) {
       finance_data.push(item);
       mixArry.push(item);
       IncomeShow(item);
+      RenderDataFinance(item);
+      RenderDataFinanceMobile(item);
+      ChartGraphs(item);
     }
   });
   FetchTotal();
-  ChartGraphs(finance_data);
 };
 
 FetchData();
@@ -437,19 +504,44 @@ FetchTotal();
 
 const FetchExpense = async () => {
   expense_body.innerHTML = "";
+  history_outer_div.innerHTML = "";
+  history_outer_div_small.innerHTML = "";
   const { data, error } = await supabaseClient.from("expense").select();
   data?.filter((item) => {
     if (item?.email == email) {
       ExpenseArry.push(item);
+      mixArry.push(item);
       ShowExpense(item);
+      RenderDataExpenseMobile(item);
+      RenderDataExpense(item);
+      ChartGraphs(item);
     }
   });
   FetchTotal();
-  mixArry.push(ExpenseArry);
-  ChartGraphs(ExpenseArry);
 };
 
 FetchExpense();
+
+const RenderDataExpenseMobile = (data) => {
+  const div = document.createElement("div");
+  div.classList.add("history-ele");
+  const content = `
+                <p class="text-red-600">${data?.reference}</p>
+                <p class="text-red-600">- $ ${data?.expense_amount}</p>
+      `;
+  div.innerHTML = content;
+  history_outer_div_small.appendChild(div);
+};
+const RenderDataExpense = (data) => {
+  const div = document.createElement("div");
+  div.classList.add("history-ele");
+  const content = `
+                <p class="text-red-600">${data?.reference}</p>
+                <p class="text-red-600">- $ ${data?.expense_amount}</p>
+      `;
+  div.innerHTML = content;
+  history_outer_div.appendChild(div);
+};
 
 const totols = document.querySelector("#totals");
 const TotalShow = (data) => {
@@ -465,29 +557,42 @@ let income_chart = [];
 let expense_chart = [];
 const ctx = document.getElementById("chartDiv");
 const ChartGraphs = (data) => {
-  // if (!data) {
-  //   myChart = new Chart(ctx, {
-  //     type: "line",
-  //     data: {
-  //       labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-  //       datasets: [
-  //         {
-  //           label: "# of Votes",
-  //           data: [12, 19, 3, 5, 2, 3],
-  //           borderWidth: 1,
-  //         },
-  //       ],
-  //     },
-  //     options: {
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true,
-  //         },
-  //       },
-  //     },
-  //   });
-  // }
-  data.forEach((chartData) => {
+  const charArry = [];
+  charArry.push(data);
+  if (!data.reference) {
+    ctx.style.width = "100%";
+    myChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: [
+          "Red",
+          "Blue",
+          "Yellow",
+          "Green",
+          "Purple",
+          "Orange",
+          "Yellow",
+          "income",
+          "expense",
+        ],
+        datasets: [
+          {
+            label: "# of Votes",
+            data: [12, 19, 3, 5, 2, 3, 10, 40, 5, 33],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+  }
+  charArry.forEach((chartData) => {
     if (myChart) {
       myChart.destroy(); // Destroy the existing chart
     }
@@ -498,7 +603,7 @@ const ChartGraphs = (data) => {
       expense_salary_amount_to_Chart.push(chartData.expense_amount);
       expense_chart.push("expense");
     }
-
+    ctx.style.width = "100%";
     myChart = new Chart(ctx, {
       type: "line",
       data: {

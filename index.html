@@ -16,8 +16,7 @@
   </head>
   <body>
     <div
-      style="display: flex; gap: 20px; justify-content: space-between"
-      class="parent"
+      class="parent w-[100%] h-[100vh] flex justify-between items-center px-[50px] relative"
     >
       <div
         class="login_container hidden pl-[1rem] max-[500px]:mx-[1rem] max-[500px]:py-[1rem] max-[500px]:my-[1rem]"
@@ -32,25 +31,33 @@
           Login to our websits and Enjoy Expense tracker app
         </p>
 
-        <div class="inputs">
-          <input id="login_email" type="text" placeholder="Enter your email" />
+        <div class="inputs mt-[2.5rem]">
+          <input
+            id="login_email"
+            type="text"
+            placeholder="Enter your email"
+            class="w-[80%] py-[14px]"
+          />
 
           <input
             id="login_password"
             type="password"
             placeholder="Enter your password"
+            class="w-[80%] py-[14px]"
           />
 
-          <div class="mt-4 flex flex-col gap-1">
-            <p id="para1" class="mt-5">forgot password?</p>
-
-            <p>
+          <div class="mt-4 mb-2 flex flex-col gap-1">
+            <p class="text-base font-normal text-gray-700">
               I don't have an account
               <span
                 onclick="gosignuppage()"
                 style="color: blue; text-align: center; cursor: pointer"
+                class="hover:underline"
                 >Signup</span
               >
+            </p>
+            <p id="" class="text-[16px] font-normal text-blue-700">
+              forgot password?
             </p>
           </div>
         </div>
@@ -71,29 +78,42 @@
           Signup to our websits and Enjoy Expense tracker app
         </p>
 
-        <div class="inputs">
-          <input id="username" type="text" placeholder="Enter Your username" />
+        <div class="inputs mt-[2.5rem]">
+          <input
+            id="username"
+            type="text"
+            placeholder="Enter Your username"
+            class="w-[80%] py-[14px]"
+          />
           <br />
-          <input id="email_inpu" type="text" placeholder="Enter your email" />
+          <input
+            id="email_inpu"
+            type="text"
+            placeholder="Enter your email"
+            class="w-[80%] py-[14px]"
+          />
           <br />
           <input
             id="password_inpu"
             type="password"
             placeholder="Enter your password"
+            class="w-[80%] py-[14px]"
           />
           <br />
           <input
             id="conform_password_inpu"
             type="password"
             placeholder="Conform your password"
+            class="w-[80%] py-[14px]"
           />
           <br />
           <br />
           <p>
-            I have an account
+            Allready have an account ?
             <span
               onclick="gologinpage()"
               style="color: blue; text-align: center; cursor: pointer"
+              class="hover:underline"
               >Login</span
             >
           </p>
@@ -104,9 +124,9 @@
 
       <div class="img max-[700px]:hidden">
         <img
-          style="width: 500px; height: 500px; margin-top: 10px"
           src="./assets/expense-tracker-app.png"
           alt=""
+          class="w-[90%] h-[100%] object-cover"
         />
       </div>
     </div>

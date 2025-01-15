@@ -10,6 +10,9 @@ body {
   width: 100%;
   max-width: 100%;
 }
+::-webkit-scrollbar {
+  width: 5px;
+}
 
 .container_dashboard {
   display: flex;
