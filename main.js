@@ -41,15 +41,18 @@ GetToken();
 
 const sidebar = document.querySelector(".sidebar");
 const menubar = document.querySelectorAll(".menubar");
-const CloseBtn = document.querySelector("#CloseBtn");
+const CloseBtn = document.querySelectorAll(".CloseBtn");
 
 menubar.forEach((btn) => {
   btn.addEventListener("click", () => {
     sidebar.classList.remove("max-[840px]:hidden");
   });
 });
-CloseBtn.addEventListener("click", () => {
-  CloseSideBar();
+
+CloseBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    CloseSideBar();
+  });
 });
 
 const CloseSideBar = () => {
@@ -83,8 +86,8 @@ const item = document.querySelectorAll(".dashboard_btn");
 
 item.forEach((btn) => {
   btn.addEventListener("click", () => {
-    item.forEach((btn) => btn.classList.remove("active"));
     dashboard.forEach((dash) => {
+      item.forEach((btn) => btn.classList.remove("active"));
       if (btn.classList.contains(dash.id)) {
         item.forEach((btn) => btn.classList.remove("hidden"));
         dash.classList.remove("hidden");
