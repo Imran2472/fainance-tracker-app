@@ -86,8 +86,8 @@ const item = document.querySelectorAll(".dashboard_btn");
 
 item.forEach((btn) => {
   btn.addEventListener("click", () => {
+    item.forEach((btn) => btn.classList.remove("active"));
     dashboard.forEach((dash) => {
-      item.forEach((btn) => btn.classList.remove("active"));
       if (btn.classList.contains(dash.id)) {
         item.forEach((btn) => btn.classList.remove("hidden"));
         dash.classList.remove("hidden");
