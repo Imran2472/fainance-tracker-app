@@ -12,7 +12,21 @@ const token = JSON.parse(
 );
 
 if (!token) {
-  alert("You are not logged in");
+  Toastify({
+    text: "You are not logged in",
+    duration: 3000,
+    newWindow: true,
+    close: false,
+    gravity: "top",
+    position: "center",
+    stopOnFocus: true,
+    style: {
+      // green
+      // background: "#16A34A",
+      // red
+      background: "#DC2626",
+    },
+  }).showToast();
   window.location.href = "/";
 }
 const { email } = token?.user?.user_metadata;
@@ -43,9 +57,25 @@ const CloseSideBar = () => {
 };
 
 logout.addEventListener("click", () => {
-  alert("You have logged out successfully");
+  Toastify({
+    text: "You have logged out successfully",
+    duration: 3000,
+    newWindow: true,
+    close: false,
+    gravity: "top",
+    position: "center",
+    stopOnFocus: true,
+    style: {
+      // green
+      background: "#16A34A",
+      // red
+      // background: "#DC2626",
+    },
+  }).showToast();
   localStorage.removeItem("sb-asmdqoxecgvlyxwstgyk-auth-token");
-  window.location.href = "/";
+  setTimeout(() => {
+    window.location.href = "/";
+  }, 1000);
 });
 
 const dashboard = document.querySelectorAll(".dashboard");
@@ -104,7 +134,21 @@ income_form_ele.addEventListener("submit", async (e) => {
   const reference = userMsgInput.value;
 
   if (salary_amount > 8000) {
-    alert("You have exceeded the maximum income limit of 8000");
+    Toastify({
+      text: "You have exceeded the maximum income limit of 8000",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        background: "#16A34A",
+        // red
+        // background: "#DC2626",
+      },
+    }).showToast();
     return;
   }
 
@@ -150,7 +194,22 @@ income_form_ele.addEventListener("submit", async (e) => {
         .eq("id", total_id)
         .select();
     }
-    alert("transaction inserted successfully");
+
+    Toastify({
+      text: "transaction inserted successfully",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        background: "#16A34A",
+        // red
+        // background: "#DC2626",
+      },
+    }).showToast();
     salaryTitleInput.value = "";
     salaryAmountInput.value = "";
     IncomeDateInput.value = "";
@@ -177,7 +236,21 @@ income_form_ele.addEventListener("submit", async (e) => {
       .from("showtotal")
       .insert({ email, total_amount: salary_amount })
       .select();
-    alert("transaction inserted successfully");
+    Toastify({
+      text: "transaction inserted successfully",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        background: "#16A34A",
+        // red
+        // background: "#DC2626",
+      },
+    }).showToast();
     salaryTitleInput.value = "";
     salaryAmountInput.value = "";
     IncomeDateInput.value = "";
@@ -207,7 +280,21 @@ expenseForm.addEventListener("submit", async (e) => {
   const reference = userMsgInputEx.value;
 
   if (expense_amount > 8000) {
-    alert("You have exceeded the maximum expense limit of 8000");
+    Toastify({
+      text: "You have exceeded the maximum expense limit of 8000",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        //  background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
     return;
   }
 
@@ -222,7 +309,21 @@ expenseForm.addEventListener("submit", async (e) => {
   }
 
   if (extotal < expense_amount) {
-    alert("You don't have enough balance");
+    Toastify({
+      text: "You don't have enough balance",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        // background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
     return;
   }
   for (let i = 0; i < ExpenseArry.length; i++) {
@@ -256,7 +357,21 @@ expenseForm.addEventListener("submit", async (e) => {
       .eq("id", extotal_id)
       .select();
 
-    alert("transaction inserted successfully");
+    Toastify({
+      text: "transaction inserted successfully",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        // background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
     expenseTitleInput.value = "";
     expenseAmountInput.value = "";
     expenseDateInput.value = "";
@@ -349,7 +464,21 @@ const DeletIncome = async (id) => {
     console.error(response.error);
     return;
   } else {
-    alert("Transaction deleted successfully");
+    Toastify({
+      text: "Transaction deleted successfully",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        background: "#16A34A",
+        // red
+        // background: "#DC2626",
+      },
+    }).showToast();
   }
   FetchData();
   FetchTotal();
@@ -434,7 +563,21 @@ const DeleExpense = async (id) => {
     console.error(response.error);
     return;
   } else {
-    alert("Transaction deleted successfully");
+    Toastify({
+      text: "Transaction deleted successfully",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        background: "#16A34A",
+        // red
+        // background: "#DC2626",
+      },
+    }).showToast();
   }
   FetchExpense();
   FetchTotal();
@@ -559,39 +702,7 @@ const ctx = document.getElementById("chartDiv");
 const ChartGraphs = (data) => {
   const charArry = [];
   charArry.push(data);
-  if (!data.reference) {
-    ctx.style.width = "100%";
-    myChart = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: [
-          "Red",
-          "Blue",
-          "Yellow",
-          "Green",
-          "Purple",
-          "Orange",
-          "Yellow",
-          "income",
-          "expense",
-        ],
-        datasets: [
-          {
-            label: "# of Votes",
-            data: [12, 19, 3, 5, 2, 3, 10, 40, 5, 33],
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    });
-  }
+
   charArry.forEach((chartData) => {
     if (myChart) {
       myChart.destroy(); // Destroy the existing chart
@@ -629,3 +740,39 @@ const ChartGraphs = (data) => {
     });
   });
 };
+
+console.log(ExpenseArry, finance_data);
+
+if (!ExpenseArry.reference || !finance_data?.reference) {
+  ctx.style.width = "100%";
+  myChart = new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: [
+        "Red",
+        "Blue",
+        "Yellow",
+        "Green",
+        "Purple",
+        "Orange",
+        "Yellow",
+        "income",
+        "expense",
+      ],
+      datasets: [
+        {
+          label: "# of Votes",
+          data: [12, 19, 3, 5, 2, 3, 10, 40, 5, 33],
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+}

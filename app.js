@@ -37,21 +37,76 @@ async function signup() {
     !password_inpu.value ||
     !conform_password_inpu.value
   ) {
-    alert("Please enter a required fields");
+    Toastify({
+      text: "Please enter a required fields",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        // background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
     return;
   }
   if (symbol == -1) {
-    alert("plz Enter a correct Email");
+    Toastify({
+      text: "please Enter a correct Email Address",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        // background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
     return;
   }
   if (conform_password != password) {
-    alert("plz match your password");
-
+    Toastify({
+      text: "please match your password",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        // background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
     return;
   }
 
   if (password_inpu.value.length < 8) {
-    alert("plz Enter a 8 character password");
+    Toastify({
+      text: "please Enter a 8 character password",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        // background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
     return;
   }
 
@@ -65,10 +120,37 @@ async function signup() {
     },
   });
   if (error) {
-    alert(error.message);
+    Toastify({
+      text: `${error.message}`,
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        // background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
   } else {
-    alert("signup successfully please verify your email address..");
-    console.log(data);
+    Toastify({
+      text: "signup successfully please verify your email address...",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        background: "#16A34A",
+        // red
+        // background: "#DC2626",
+      },
+    }).showToast();
     gologinpage();
   }
 
@@ -76,7 +158,6 @@ async function signup() {
   password_inpu.value = "";
   conform_password_inpu.value = "";
   user_name.value = "";
-  console.log("signup successfully");
 }
 
 async function login() {
@@ -85,15 +166,57 @@ async function login() {
 
   const symbol = login_Email.indexOf("@gmail.com");
   if (!login_email.value || !login_password.value) {
-    alert("plz Enter a required fields");
+    Toastify({
+      text: "please Enter a required fields",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        // background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
     return;
   }
   if (symbol == -1) {
-    alert("plz Enter a correct Email");
+    Toastify({
+      text: "please Enter a correct Email",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        // background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
     return;
   }
   if (login_password.value.length < 8) {
-    alert("plz Enter a 8 character password");
+    Toastify({
+      text: "Please enter password greater than 8 characters",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        // background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
     return;
   }
 
@@ -102,13 +225,58 @@ async function login() {
     password: login_Password,
   });
   if (error) {
-    alert(error.message);
+    Toastify({
+      text: `${error.message}`,
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        // background: "#16A34A",
+        // red
+        background: "#DC2626",
+      },
+    }).showToast();
   } else {
-    alert("login successfully");
-    alert(`Welcome, ${data.user.user_metadata.first_name}`);
-    window.location.href = "/dashboard.html";
-    console.log(data);
+    Toastify({
+      text: "Login successfully",
+      duration: 3000,
+      newWindow: true,
+      close: false,
+      gravity: "top",
+      position: "center",
+      stopOnFocus: true,
+      style: {
+        // green
+        background: "#16A34A",
+        // red
+        // background: "#DC2626",
+      },
+    }).showToast();
+    setTimeout(() => {
+      Toastify({
+        text: `Welcome, ${data.user.user_metadata.first_name}`,
+        duration: 3000,
+        newWindow: true,
+        close: false,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        style: {
+          // green
+          background: "#16A34A",
+          // red
+          // background: "#DC2626",
+        },
+      }).showToast();
+    }, 1000);
     login_email.value = "";
     login_password.value = "";
+    setTimeout(() => {
+      window.location.href = "/dashboard.html";
+    }, 2000);
   }
 }
